@@ -3,9 +3,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenCentral()
     }
 }
 rootProject.name = "Android Projects"
 include ':AboutMe'
-include ':myapplication'
