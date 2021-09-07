@@ -7,3 +7,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android Projects"
 include ':AboutMe'
+include ':diceroller'

@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private fun addNickname(view: View) {
         binding.apply {
             textNickname.text = binding.editNickname.text
+            invalidateAll()
             editNickname.visibility = View.GONE
             buttonDone.visibility = View.GONE
             textNickname.visibility = View.VISIBLE
