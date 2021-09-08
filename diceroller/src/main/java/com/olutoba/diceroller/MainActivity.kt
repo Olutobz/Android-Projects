@@ -6,6 +6,9 @@ import android.widget.ImageView
 import com.olutoba.diceroller.databinding.ActivityMainBinding
 import kotlin.random.Random
 
+/**@author Onikoyi Damola Olutoba
+ * @since 07/09/2021
+ * */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

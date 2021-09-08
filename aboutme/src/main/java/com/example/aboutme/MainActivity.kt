@@ -8,6 +8,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
 
+/**@author Onikoyi Damola Olutoba
+ * @since 06/09/2021
+ * */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -19,19 +22,19 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.myName = myName
-        binding.buttonDone.setOnClickListener {
+        binding.doneButton.setOnClickListener {
             addNickname(it)
         }
     }
 
     private fun addNickname(view: View) {
         binding.apply {
-            myName?.nickName = editNickname.text.toString()
+            myName?.nickName = nicknameEdit.text.toString()
             // Invalidate all binding expressions and request a new rebind to refresh UI
             invalidateAll()
-            editNickname.visibility = View.GONE
-            buttonDone.visibility = View.GONE
-            textNickname.visibility = View.VISIBLE
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
         }
 
         // Hide the keyboard.
