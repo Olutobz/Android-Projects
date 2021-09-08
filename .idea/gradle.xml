@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aboutme" />
+            <option value="$PROJECT_DIR$/colormyviews" />
             <option value="$PROJECT_DIR$/diceroller" />
           </set>
         </option>
