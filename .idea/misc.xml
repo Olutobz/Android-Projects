@@ -5,6 +5,29 @@
       <map>
         <entry key="AboutMe/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="aboutme/src/main/res/layout/activity_main.xml" value="0.2921875" />
+        <entry key="androidtrivia/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/about_android_trivia.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/android.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/android_category_simple.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/android_trivia.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/ic_baseline_feedback_24.xml" value="0.28703703703703703" />
+        <entry key="androidtrivia/src/main/res/drawable/ic_launcher_background.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/nav_header.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/rules.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/settings.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/share.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/trivia_rules.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/try_again.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/drawable/you_win.xml" value="0.2935185185185185" />
+        <entry key="androidtrivia/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_about.xml" value="0.25" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_game.xml" value="0.25" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_game_over.xml" value="0.1897644927536232" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_game_won.xml" value="0.1897644927536232" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_rules.xml" value="0.1897644927536232" />
+        <entry key="androidtrivia/src/main/res/layout/fragment_title.xml" value="0.25" />
+        <entry key="androidtrivia/src/main/res/layout/nav_header.xml" value="0.1897644927536232" />
+        <entry key="androidtrivia/src/main/res/menu/winner_menu.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.30564102564102563" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.30564102564102563" />

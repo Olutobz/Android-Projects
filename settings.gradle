@@ -9,3 +9,4 @@ rootProject.name = "Android Projects"
 include ':aboutme'
 include ':diceroller'
 include ':colormyviews'
+include ':androidtrivia'
