@@ -58,6 +58,8 @@
             android:layout_height="wrap_content"
             android:text="@{myName.nickName}"
             android:textAlignment="center"
+            android:background="@android:color/holo_green_dark"
+            android:paddingBottom="@dimen/small_padding"
             android:visibility="gone" />
 
         <ImageView

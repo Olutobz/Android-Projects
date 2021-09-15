@@ -25,6 +25,24 @@ class MainActivity : AppCompatActivity() {
         binding.doneButton.setOnClickListener {
             addNickname(it)
         }
+
+        binding.nicknameText.setOnClickListener {
+            updateNickname(it)
+        }
+    }
+
+    private fun updateNickname(view: View?) {
+        binding.apply {
+            nicknameEdit.visibility = View.VISIBLE
+            doneButton.visibility = View.VISIBLE
+            view?.visibility = View.GONE
+
+            nicknameEdit.requestFocus()
+
+            // Show the keyboard.
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(nicknameEdit, 0)
+        }
     }
 
     private fun addNickname(view: View) {
