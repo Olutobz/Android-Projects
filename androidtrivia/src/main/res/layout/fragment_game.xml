@@ -18,7 +18,7 @@
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -36,7 +36,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                app:srcCompat="@drawable/android_category_simple" />
+                app:srcCompat="@drawable/android_category_simple"
+                android:contentDescription="@string/image_question" />
 
             <TextView
                 android:id="@+id/questionText"

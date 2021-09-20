@@ -20,4 +20,6 @@
     <string name="sharing_not_available">Sharing Not Available</string>
     <string name="next_match">Next Match</string>
     <string name="play">Play</string>
+    <string name="title_image">Title Image</string>
+    <string name="image_question">Image Question</string>
 </resources>

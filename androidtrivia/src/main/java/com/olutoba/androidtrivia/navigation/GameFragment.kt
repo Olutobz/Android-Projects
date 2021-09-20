@@ -11,10 +11,7 @@ import com.olutoba.androidtrivia.R
 import com.olutoba.androidtrivia.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
-    data class Question(
-        val text: String,
-        val answers: List<String>
-    )
+    data class Question(val text: String, val answers: List<String>)
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
