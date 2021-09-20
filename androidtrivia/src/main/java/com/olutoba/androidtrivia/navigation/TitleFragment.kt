@@ -19,6 +19,5 @@ class TitleFragment : Fragment() {
             inflater, R.layout.fragment_title, container, false
         )
         return binding.root
-
     }
 }
