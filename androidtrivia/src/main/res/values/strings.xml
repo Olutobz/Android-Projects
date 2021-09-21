@@ -22,4 +22,6 @@
     <string name="play">Play</string>
     <string name="title_image">Title Image</string>
     <string name="image_question">Image Question</string>
+    <string name="game_over_image">Game Over Image</string>
+    <string name="you_win_image">You Win Image</string>
 </resources>
