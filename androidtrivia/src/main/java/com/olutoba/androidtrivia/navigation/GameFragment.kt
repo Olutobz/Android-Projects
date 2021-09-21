@@ -14,9 +14,10 @@ import com.olutoba.androidtrivia.databinding.FragmentGameBinding
 class GameFragment : Fragment() {
     data class Question(val text: String, val answers: List<String>)
 
-    // The first answer is the correct one.  We randomize the answers before showing the text.
-    // All questions must have four answers.  We'd want these to contain references to string
-    // resources so we could internationalize. (or better yet, not define the questions in code...)
+    /* The first answer is the correct one.  We randomize the answers before showing the text.
+       All questions must have four answers.  We'd want these to contain references to string
+       resources so we could internationalize. (or better yet, not define the questions in code...)
+       */
     private val questions: MutableList<Question> = mutableListOf(
         Question(
             text = "What is Android Jetpack?",
@@ -73,24 +74,20 @@ class GameFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-        // Inflate the layout for this fragment
+    ): View {
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
             inflater, R.layout.fragment_game, container, false
         )
 
-        // Shuffles the questions and sets the question index to the first question.
         randomizeQuestions()
 
         // Bind this fragment class to the layout
         binding.game = this
 
-        // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener {
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
             // Do nothing if nothing is checked (id == -1)
-            if (-1 != checkedId) {
+            if (checkedId != -1) {
                 var answerIndex = 0
                 when (checkedId) {
                     R.id.secondAnswerRadioButton -> answerIndex = 1
@@ -108,11 +105,11 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        Navigation.createNavigateOnClickListener(R.id.gameWonFragment)
+                        Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameWonFragment)
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    Navigation.createNavigateOnClickListener(R.id.gameOverFragment)
+                    Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameOverFragment)
                 }
             }
         }
