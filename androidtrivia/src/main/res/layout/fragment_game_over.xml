@@ -11,7 +11,7 @@
         android:background="@color/gameOverBackground">
 
         <ImageView
-            android:id="@+id/gameOverFragment"
+            android:id="@+id/gameOverFragmentImage"
             android:layout_width="wrap_content"
             android:layout_height="362dp"
             android:layout_marginStart="@dimen/horizontal_margin"
@@ -23,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:srcCompat="@drawable/try_again" />
+            app:srcCompat="@drawable/try_again"
+            android:contentDescription="@string/game_over_image" />
 
         <Button
             android:id="@+id/tryAgainButton"
@@ -42,6 +43,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gameOverFragment" />
+            app:layout_constraintTop_toBottomOf="@+id/gameOverFragmentImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
