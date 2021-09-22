@@ -133,4 +133,6 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
+
+
 }
