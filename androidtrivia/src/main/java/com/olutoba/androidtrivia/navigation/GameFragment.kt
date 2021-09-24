@@ -134,5 +134,4 @@ class GameFragment : Fragment() {
             getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 
-
 }
