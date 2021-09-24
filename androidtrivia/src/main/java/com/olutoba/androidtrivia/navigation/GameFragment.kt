@@ -84,7 +84,7 @@ class GameFragment : Fragment() {
         // Bind this fragment class to the layout
         binding.game = this
 
-        binding.submitButton.setOnClickListener {
+        binding.submitButton.setOnClickListener { view: View ->
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
             // Do nothing if nothing is checked (id == -1)
             if (checkedId != -1) {
@@ -94,22 +94,24 @@ class GameFragment : Fragment() {
                     R.id.thirdAnswerRadioButton -> answerIndex = 2
                     R.id.fourthAnswerRadioButton -> answerIndex = 3
                 }
-                // The first answer in the original question is always the correct one, so if our
-                // answer matches, we have the correct answer.
+                /* The first answer in the original question is always the correct one, so if our
+                   answer matches, we have the correct answer. */
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
-                    questionIndex++
                     // Advance to the next question
+                    questionIndex++
                     if (questionIndex < numQuestions) {
                         currentQuestion = questions[questionIndex]
                         setQuestion()
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameWonFragment)
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_gameFragment_to_gameWonFragment)
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    Navigation.createNavigateOnClickListener(R.id.action_gameFragment_to_gameOverFragment)
+                    Navigation.findNavController(view)
+                        .navigate(R.id.action_gameFragment_to_gameOverFragment)
                 }
             }
         }
@@ -131,4 +133,5 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title =
             getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
+
 }
