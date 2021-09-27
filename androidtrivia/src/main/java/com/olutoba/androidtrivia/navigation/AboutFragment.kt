@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.olutoba.androidtrivia.R
 
 class AboutFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
