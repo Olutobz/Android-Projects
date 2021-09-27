@@ -25,4 +25,5 @@
     <string name="game_over_image">Game Over Image</string>
     <string name="you_win_image">You Win Image</string>
     <string name="about_image">About Image</string>
+    <string name="about_menu">About Menu</string>
 </resources>
