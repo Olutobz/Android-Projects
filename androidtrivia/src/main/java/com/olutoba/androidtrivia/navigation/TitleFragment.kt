@@ -22,6 +22,8 @@ class TitleFragment : Fragment() {
             view?.findNavController()
                 ?.navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
         }
+
+        // Declare that TitleFragment has a Menu
         setHasOptionsMenu(true)
         return binding.root
     }

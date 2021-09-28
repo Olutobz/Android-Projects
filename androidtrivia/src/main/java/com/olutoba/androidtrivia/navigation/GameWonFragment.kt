@@ -1,9 +1,8 @@
 package com.olutoba.androidtrivia.navigation
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -26,13 +25,44 @@ class GameWonFragment : Fragment() {
             view.findNavController()
                 .navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())
         }
-        val args = arguments?.let { GameWonFragmentArgs.fromBundle(it) }
-        Toast.makeText(
-            context,
-            "NumCorrect: ${args?.numCorrect}, NumQuestions: ${args?.numQuestions}",
-            Toast.LENGTH_SHORT
-        ).show()
+
+        // Declares that GameWonFragment has a Menu
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.winner_menu, menu)
+        if (activity?.let { getSharedIntent().resolveActivity(it.packageManager) } == null) {
+            menu.findItem(R.id.share).isVisible = false
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.share -> shareSuccess()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun shareSuccess() {
+        startActivity(getSharedIntent())
+    }
+
+    private fun getSharedIntent(): Intent {
+        val args = arguments?.let { GameWonFragmentArgs.fromBundle(it) }
+        val sharedIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(
+                Intent.EXTRA_TEXT, getString(
+                    R.string.share_success_text,
+                    args?.numCorrect, args?.numQuestions
+                )
+            )
+        }
+        return sharedIntent
     }
 
 }
