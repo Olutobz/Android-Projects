@@ -19,13 +19,13 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/horizontal_margin"
             android:layout_marginBottom="@dimen/vertical_margin"
+            android:contentDescription="@string/you_win_image"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/nextMatchButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/you_win"
-            android:contentDescription="@string/you_win_image" />
+            app:srcCompat="@drawable/you_win" />
 
         <Button
             android:id="@+id/nextMatchButton"
