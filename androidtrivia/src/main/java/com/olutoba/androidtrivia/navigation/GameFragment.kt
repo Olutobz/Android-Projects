@@ -104,7 +104,7 @@ class GameFragment : Fragment() {
                         setQuestion()
                         binding.invalidateAll()
                     } else {
-                        // We've won!  Navigate to the gameWonFragment.
+                        // We've won!  Navigate to the  gameWonFragment.
                         Navigation.findNavController(view).navigate(
                             GameFragmentDirections.actionGameFragmentToGameWonFragment(
                                 numQuestions, questionIndex
