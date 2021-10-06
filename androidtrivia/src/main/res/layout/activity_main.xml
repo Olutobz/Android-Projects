@@ -15,7 +15,7 @@
 
             <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/myNavHostFragment"
+                android:id="@+id/myNavHost_fragment"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -26,7 +26,7 @@
 
         <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
         <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navView"
+            android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
