@@ -26,7 +26,7 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_in_right"
             app:popUpTo="@id/gameFragment"
             app:popUpToInclusive="true" />
         <action
@@ -63,5 +63,16 @@
             app:destination="@id/gameFragment"
             app:popUpTo="@id/titleFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.olutoba.androidtrivia.navigation.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.olutoba.androidtrivia.navigation.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>
