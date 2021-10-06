@@ -30,14 +30,14 @@
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/horizontal_margin"
                 android:layout_marginBottom="@dimen/vertical_margin"
+                android:contentDescription="@string/image_question"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                app:srcCompat="@drawable/android_category_simple"
-                android:contentDescription="@string/image_question" />
+                app:srcCompat="@drawable/android_category_simple" />
 
             <TextView
                 android:id="@+id/questionText"

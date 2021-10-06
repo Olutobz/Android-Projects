@@ -69,6 +69,7 @@
         android:name="com.olutoba.androidtrivia.navigation.RulesFragment"
         android:label="fragment_rules"
         tools:layout="@layout/fragment_rules" />
+
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.olutoba.androidtrivia.navigation.AboutFragment"
