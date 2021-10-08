@@ -23,6 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nav_header"
-        android:contentDescription="@string/nav_drawer_header_title" />
+        android:contentDescription="@string/nav_drawer_header_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

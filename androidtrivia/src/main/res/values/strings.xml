@@ -26,5 +26,5 @@
     <string name="you_win_image">You Win Image</string>
     <string name="about_image">About Image</string>
     <string name="about_menu">About Menu</string>
-    <string name="nav_drawer_header_title">Navigation drawer header image</string>
+    <string name="nav_drawer_header_description">Navigation drawer header image</string>
 </resources>
