@@ -37,14 +37,38 @@
         <entry key="colormyviews/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="desertpusher/src/main/res/drawable-v24/bakery_back.xml" value="0.24351851851851852" />
         <entry key="desertpusher/src/main/res/drawable-v24/cupcake.xml" value="0.24351851851851852" />
+        <entry key="desertpusher/src/main/res/drawable-v24/donut.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/eclair.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/froyo.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/gingerbread.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/honeycomb.xml" value="0.2490740740740741" />
         <entry key="desertpusher/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2324074074074074" />
         <entry key="desertpusher/src/main/res/drawable-v24/icecreamsandwich.xml" value="0.2324074074074074" />
+        <entry key="desertpusher/src/main/res/drawable-v24/jellybean.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/kitkat.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/lollipop.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/marshmallow.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/nougat.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/oreo.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable-v24/white_box.xml" value="0.2490740740740741" />
         <entry key="desertpusher/src/main/res/drawable/bakery_back.xml" value="0.24351851851851852" />
+        <entry key="desertpusher/src/main/res/drawable/cupcake.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/donut.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/eclair.xml" value="0.2601851851851852" />
         <entry key="desertpusher/src/main/res/drawable/froyo.xml" value="0.23796296296296296" />
+        <entry key="desertpusher/src/main/res/drawable/gingerbread.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/honeycomb.xml" value="0.2490740740740741" />
         <entry key="desertpusher/src/main/res/drawable/ic_launcher_background.xml" value="0.24351851851851852" />
         <entry key="desertpusher/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2324074074074074" />
         <entry key="desertpusher/src/main/res/drawable/icecreamsandwich.xml" value="0.2324074074074074" />
-        <entry key="desertpusher/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
+        <entry key="desertpusher/src/main/res/drawable/jellybean.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/kitkat.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/lollipop.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/marshmallow.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/nougat.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/oreo.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/drawable/white_box.xml" value="0.2490740740740741" />
+        <entry key="desertpusher/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="desertpusher/src/main/res/menu/main_menu.xml" value="0.2578125" />
         <entry key="desertpusher/src/main/res/mipmap-anydpi-v26/ic_dessert_pusher.xml" value="0.24351851851851852" />
         <entry key="diceroller/src/main/res/drawable/dice_1.xml" value="0.3041025641025641" />

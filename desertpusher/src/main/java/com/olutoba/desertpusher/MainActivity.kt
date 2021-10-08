@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.share_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
