@@ -24,13 +24,13 @@
             android:id="@+id/background_image"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:contentDescription="@string/background_image"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bakery_back"
-            android:contentDescription="@string/background_image" />
+            app:srcCompat="@drawable/bakery_back" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/margin_end_guide"
@@ -58,13 +58,13 @@
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/desert_image_button"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/white_background"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/cupcake"
-            android:contentDescription="@string/desert_image_button" />
+            tools:src="@drawable/cupcake" />
         <!--  Code for white box at the bottom, using ShapeDrawable defined in the drawable folder  -->
         <View
             android:id="@+id/white_background"
@@ -106,7 +106,7 @@
             android:fontFamily="sans-serif-medium"
             android:paddingTop="@dimen/default_spacing"
             android:text="@{amountSold.toString()}"
-            android:textColor="@color/grey"
+            android:textColor="@color/black"
             android:textSize="@dimen/medium_text_size"
             app:layout_constraintBottom_toTopOf="@+id/revenue_text"
             app:layout_constraintEnd_toStartOf="@+id/margin_end_guide"
