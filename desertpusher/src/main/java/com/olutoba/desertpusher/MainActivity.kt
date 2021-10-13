@@ -19,9 +19,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
 
-    /** Dessert Data **/
-
-    /**
+    /** Dessert Data
+    ----------------------------------------------------------------------------------------------
      * Simple data class that represents a dessert. Includes the resource id integer associated with
      * the image, the price it's sold for, and the startProductionAmount, which determines when
      * the dessert starts to be produced.
@@ -44,6 +43,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         Dessert(R.drawable.nougat, 5000, 16000),
         Dessert(R.drawable.oreo, 6000, 20000)
     )
+
     private var currentDessert = allDesserts[0]
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
      * Updates the score when the dessert is clicked. Possibly shows a new dessert.
      */
     private fun onDessertClicked() {
-
         // Update the score
         revenue += currentDessert.price
         dessertsSold++
@@ -125,8 +124,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             startActivity(shareIntent)
         } catch (ex: ActivityNotFoundException) {
             Toast.makeText(
-                this, getString(R.string.sharing_not_available),
-                Toast.LENGTH_LONG
+                this, getString(R.string.sharing_not_available), Toast.LENGTH_LONG
             ).show()
         }
     }
