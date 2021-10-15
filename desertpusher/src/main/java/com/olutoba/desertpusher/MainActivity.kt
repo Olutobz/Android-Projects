@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private var revenue = 0
     private var dessertsSold = 0
-
-    // Contains all the views
     private lateinit var binding: ActivityMainBinding
+    private lateinit var desertTimer: DessertTimer
 
     /** Dessert Data
     -----------------------------------------------------------------------------------------------
@@ -58,16 +57,23 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
-        // Set the TextViews to the right values
+        desertTimer = DessertTimer()
         binding.revenue = revenue
         binding.amountSold = dessertsSold
 
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
+
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart called")
     }
 
     override fun onStart() {
         super.onStart()
+        desertTimer.startTimer()
         Timber.i("onStart called")
     }
 
@@ -83,6 +89,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStop() {
         super.onStop()
+        desertTimer.startTimer()
         Timber.i("onStop called")
     }
 
@@ -91,10 +98,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         Timber.i("onDestroy called")
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        Timber.i("onRestart called")
-    }
 
     /**
      * Updates the score when the dessert is clicked. Possibly shows a new dessert.
