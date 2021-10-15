@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.olutoba.desertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     private lateinit var binding: ActivityMainBinding
 
     /** Dessert Data
-    ----------------------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------
      * Simple data class that represents a dessert. Includes the resource id integer associated with
      * the image, the price it's sold for, and the startProductionAmount, which determines when
      * the dessert starts to be produced.
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.i("onCreate called")
 
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -62,6 +64,36 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart called")
     }
 
     /**
@@ -88,10 +120,11 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             if (dessertsSold >= dessert.startProductionAmount) {
                 newDessert = dessert
             }
-            // The list of desserts is sorted by startProductionAmount. As you sell more desserts,
-            // you'll start producing more expensive desserts as determined by startProductionAmount
-            // We know to break as soon as we see a dessert who's "startProductionAmount" is greater
-            // than the amount sold.
+
+            /* The list of desserts is sorted by startProductionAmount. As you sell more desserts,
+             you'll start producing more expensive desserts as determined by startProductionAmount
+             We know to break as soon as we see a dessert who's "startProductionAmount" is greater
+             than the amount sold. */
             else break
         }
 
@@ -102,15 +135,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
     }
 
-    /**
-     * Menu methods
-     */
     private fun onShare() {
-        /*  val shareIntent = ShareCompat.IntentBuilder.from(this)
-              .setText(getString(R.string.share_text, dessertsSold, revenue))
-              .setType("text/plain")
-              .intent*/
-
         val shareIntent = Intent().apply {
             type = "text/plain"
             putExtra(
@@ -123,9 +148,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         try {
             startActivity(shareIntent)
         } catch (ex: ActivityNotFoundException) {
-            Toast.makeText(
-                this, getString(R.string.sharing_not_available), Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(this, getString(R.string.sharing_not_available), Toast.LENGTH_LONG)
+                .show()
         }
     }
 
