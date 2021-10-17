@@ -3,6 +3,7 @@
     package="com.olutoba.desertpusher">
 
     <application
+        android:name=".PusherApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_dessert_pusher"
