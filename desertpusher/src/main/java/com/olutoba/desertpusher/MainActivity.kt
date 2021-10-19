@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
