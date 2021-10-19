@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
-        desertTimer = DessertTimer()
+        desertTimer = DessertTimer(this.lifecycle)
         binding.revenue = revenue
         binding.amountSold = dessertsSold
 
@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStart() {
         super.onStart()
-        desertTimer.startTimer()
         Timber.i("onStart called")
     }
 
@@ -89,7 +88,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStop() {
         super.onStop()
-        desertTimer.startTimer()
         Timber.i("onStop called")
     }
 
@@ -97,7 +95,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         super.onDestroy()
         Timber.i("onDestroy called")
     }
-
 
     /**
      * Updates the score when the dessert is clicked. Possibly shows a new dessert.
