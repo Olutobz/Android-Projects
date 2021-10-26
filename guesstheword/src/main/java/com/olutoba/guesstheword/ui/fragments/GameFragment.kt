@@ -1,4 +1,4 @@
-package com.olutoba.guesstheword.screens
+package com.olutoba.guesstheword.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,15 +29,11 @@ class GameFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Inflate view and obtain an instance of the binding class
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.game_fragment,
-            container,
-            false
-        )
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
 
         resetList()
         nextWord()

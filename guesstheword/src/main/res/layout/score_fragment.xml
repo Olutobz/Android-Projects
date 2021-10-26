@@ -8,7 +8,7 @@
         android:id="@+id/score_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.ScoreFragment">
+        tools:context=".ui.fragments.ScoreFragment">
 
         <TextView
             android:id="@+id/you_scored_text"
