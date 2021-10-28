@@ -1,4 +1,4 @@
-package com.olutoba.guesstheword.viewmodels
+package com.olutoba.guesstheword.viewmodel
 
 import android.os.CountDownTimer
 import androidx.lifecycle.LiveData

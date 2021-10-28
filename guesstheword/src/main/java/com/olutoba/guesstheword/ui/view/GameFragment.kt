@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.olutoba.guesstheword.R
 import com.olutoba.guesstheword.databinding.GameFragmentBinding
-import com.olutoba.guesstheword.viewmodels.GameViewModel
+import com.olutoba.guesstheword.viewmodel.GameViewModel
 
 /**
  * Fragment where the game is played
