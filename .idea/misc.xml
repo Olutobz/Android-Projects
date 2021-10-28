@@ -74,6 +74,7 @@
         <entry key="diceroller/src/main/res/drawable/dice_1.xml" value="0.3041025641025641" />
         <entry key="diceroller/src/main/res/layout/activity_main.xml" value="0.29270833333333335" />
         <entry key="guesstheword/src/main/res/layout/game_fragment.xml" value="0.25" />
+        <entry key="guesstheword/src/main/res/layout/score_fragment.xml" value="0.2" />
         <entry key="myapplication/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>

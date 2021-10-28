@@ -1,4 +1,4 @@
-package com.olutoba.guesstheword.ui.fragments
+package com.olutoba.guesstheword.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
