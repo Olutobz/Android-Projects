@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/colormyviews" />
             <option value="$PROJECT_DIR$/desertpusher" />
             <option value="$PROJECT_DIR$/diceroller" />
+            <option value="$PROJECT_DIR$/guesstheword" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
