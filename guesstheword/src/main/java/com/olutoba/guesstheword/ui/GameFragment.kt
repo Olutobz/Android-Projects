@@ -1,4 +1,4 @@
-package com.olutoba.guesstheword.ui.view
+package com.olutoba.guesstheword.ui
 
 import android.os.Build
 import android.os.Bundle
