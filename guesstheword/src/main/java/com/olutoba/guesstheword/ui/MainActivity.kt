@@ -1,4 +1,4 @@
-package com.olutoba.guesstheword.ui.activities
+package com.olutoba.guesstheword.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
