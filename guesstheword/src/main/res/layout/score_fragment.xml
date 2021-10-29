@@ -15,7 +15,7 @@
         android:id="@+id/score_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.view.ScoreFragment">
+        tools:context=".ui.ScoreFragment">
 
         <TextView
             android:id="@+id/you_scored_text"
