@@ -10,5 +10,8 @@ different screens. Each screen is implemented as a Fragment. The app navigates u
 Action Bar, and the Navigation Drawer.
 
 ## Guess The Word
-<img src="screenshots/guess1.png" alt="titleScreen" width="200"/> <img src="screenshots/guess2.png" alt="gameScreen" width="200"/>
+<img src="screenshots/guess1.png" alt="titleScreen" width="200"/>
+
+<img src="screenshots/guess2.png" alt="gameScreen" width="200"/>
+
 <img src="screenshots/guess3.png" alt="scoreScreen" width="200"/>
