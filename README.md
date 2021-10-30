@@ -12,4 +12,3 @@ Action Bar, and the Navigation Drawer.
 ## Guess The Word
 
 ![Img1](screenshots/guess1.png) ![Img2](screenshots/guess2.png) ![Img3](screenshots/guess3.png)
-
