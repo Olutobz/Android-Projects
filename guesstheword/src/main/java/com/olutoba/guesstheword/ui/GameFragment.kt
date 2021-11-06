@@ -34,7 +34,7 @@ class GameFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
 
         // Get the ViewModel
-        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+        viewModel = ViewModelProvider(this)[GameViewModel::class.java]
         binding.gameViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
@@ -62,9 +62,6 @@ class GameFragment : Fragment() {
         buzzer?.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
-            } else {
-                //deprecated in API 26
-                buzzer.vibrate(pattern, -1)
             }
         }
     }
