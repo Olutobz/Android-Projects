@@ -6,11 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
 
 
-/**
- * This is pretty much boiler plate code for a ViewModel Factory.
- *
- * Provides the SleepDatabaseDao and context to the ViewModel.
- */
 class SleepTrackerViewModelFactory(
     private val dataSource: SleepDatabaseDao,
     private val application: Application
