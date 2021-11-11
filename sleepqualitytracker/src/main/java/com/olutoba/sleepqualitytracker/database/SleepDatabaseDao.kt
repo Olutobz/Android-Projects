@@ -1,10 +1,7 @@
 package com.olutoba.sleepqualitytracker.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface SleepDatabaseDao {
@@ -17,6 +14,9 @@ interface SleepDatabaseDao {
 
     @Query("SELECT * FROM daily_sleep_quality_table WHERE nightId = :key")
     fun get(key: Long): SleepNight?
+
+    @Delete
+    fun delete(night: SleepNight)
 
     @Query("DELETE FROM daily_sleep_quality_table")
     fun clear()
