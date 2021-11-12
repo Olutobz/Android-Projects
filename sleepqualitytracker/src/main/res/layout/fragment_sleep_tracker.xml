@@ -7,6 +7,9 @@
 
     <data>
 
+        <variable
+            name="sleepTrackerViewModel"
+            type="com.olutoba.sleepqualitytracker.sleeptracker.SleepTrackerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
