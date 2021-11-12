@@ -9,8 +9,7 @@ import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
  */
 class SleepTrackerViewModel(
     val database: SleepDatabaseDao,
-    application: Application
-) : AndroidViewModel(application) {
+    application: Application) : AndroidViewModel(application) {
 
 }
 
