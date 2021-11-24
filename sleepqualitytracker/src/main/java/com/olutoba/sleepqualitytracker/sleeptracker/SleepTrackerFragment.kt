@@ -12,10 +12,6 @@ import com.olutoba.sleepqualitytracker.database.SleepDatabase
 import com.olutoba.sleepqualitytracker.databinding.FragmentSleepTrackerBinding
 
 
-/**
- * A fragment with buttons to record start and end times for sleep, which are saved in
- * a database.
- */
 class SleepTrackerFragment : Fragment() {
 
     override fun onCreateView(
