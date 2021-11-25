@@ -2,6 +2,7 @@ package com.olutoba.sleepqualitytracker.sleeptracker
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
@@ -15,8 +16,6 @@ class SleepTrackerViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    // Note: The coroutine needs  a Job, Scope and dispatcher
-
     private var viewModelJob = Job()
     private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
@@ -26,6 +25,10 @@ class SleepTrackerViewModel(
     val nightsString = Transformations.map(nights) { nights ->
         formatNights(nights, application.resources)
     }
+
+    private val _navigateToSleepQuality = MutableLiveData<SleepNight?>()
+    val navigateToSleepQuality: LiveData<SleepNight?>
+        get() = _navigateToSleepQuality
 
     init {
         initializeTonight()
@@ -59,8 +62,13 @@ class SleepTrackerViewModel(
         uiScope.launch {
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
+            _navigateToSleepQuality.value = oldNight
             update(oldNight)
         }
+    }
+
+    fun doneNavigating() {
+        _navigateToSleepQuality.value = null
     }
 
     private suspend fun insert(night: SleepNight) {
@@ -88,7 +96,6 @@ class SleepTrackerViewModel(
         }
     }
 
-    // Cancel all coroutines here
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
