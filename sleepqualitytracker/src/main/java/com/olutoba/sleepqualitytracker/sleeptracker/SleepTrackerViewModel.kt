@@ -3,13 +3,13 @@ package com.olutoba.sleepqualitytracker.sleeptracker
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
 import com.olutoba.sleepqualitytracker.database.SleepNight
+import com.olutoba.sleepqualitytracker.formatNights
 import kotlinx.coroutines.*
 
-/**
- * ViewModel for SleepTrackerFragment.
- */
+
 class SleepTrackerViewModel(
     private val database: SleepDatabaseDao,
     application: Application
@@ -18,18 +18,21 @@ class SleepTrackerViewModel(
     // Note: The coroutine needs  a Job, Scope and dispatcher
 
     private var viewModelJob = Job()
-    private var uiCoroutineScope =
-        CoroutineScope(Dispatchers.Main + viewModelJob)
+    private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private var tonight = MutableLiveData<SleepNight?>()
     private val nights = database.getAllNights()
+
+    val nightsString = Transformations.map(nights) { nights ->
+        formatNights(nights, application.resources)
+    }
 
     init {
         initializeTonight()
     }
 
     private fun initializeTonight() {
-        uiCoroutineScope.launch {
+        uiScope.launch {
             tonight.value = getTonightFromDatabase()
         }
     }
@@ -45,21 +48,19 @@ class SleepTrackerViewModel(
     }
 
     fun onStartTracking() {
-        uiCoroutineScope.launch {
+        uiScope.launch {
             val newNight = SleepNight()
             insert(newNight)
             tonight.value = getTonightFromDatabase()
-
         }
     }
 
     fun onStopTracking() {
-        uiCoroutineScope.launch {
+        uiScope.launch {
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
             update(oldNight)
         }
-
     }
 
     private suspend fun insert(night: SleepNight) {
@@ -74,14 +75,8 @@ class SleepTrackerViewModel(
         }
     }
 
-    // Cancel all coroutines here
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
-
     fun onClear() {
-        uiCoroutineScope.launch {
+        uiScope.launch {
             clear()
             tonight.value = null
         }
@@ -93,19 +88,10 @@ class SleepTrackerViewModel(
         }
     }
 
-    /*  This is the coroutine usage pattern
-      fun someWorkNeedsToBeDone() {
-          uiCoroutineScope.launch {
-             suspendFunction() // so that we don't block UI thread while waiting for results
-          }
-       }
-
-        suspend fun longRunningWork() {
-
-             withContext(Dispatcher.IO) {
-                 doLongRunningWork()
-             }
-        }
-    */
+    // Cancel all coroutines here
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 
 }
