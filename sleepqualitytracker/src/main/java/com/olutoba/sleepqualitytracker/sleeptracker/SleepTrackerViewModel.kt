@@ -26,9 +26,34 @@ class SleepTrackerViewModel(
         formatNights(nights, application.resources)
     }
 
+    /**
+     * If tonight has not been set, then the START button should be visible.
+     */
+    val startButtonVisible = Transformations.map(tonight) {
+        it == null
+    }
+
+    /**
+     * If tonight has been set, then the STOP button should be visible.
+     */
+    val stopButtonVisible = Transformations.map(tonight) {
+        it != null
+    }
+
+    /**
+     * If there are any nights in the database, show the CLEAR button.
+     */
+    val clearButtonVisible = Transformations.map(nights) {
+        it?.isNotEmpty()
+    }
+
     private val _navigateToSleepQuality = MutableLiveData<SleepNight?>()
     val navigateToSleepQuality: LiveData<SleepNight?>
         get() = _navigateToSleepQuality
+
+    private var _showSnackBarEvent = MutableLiveData<Boolean>()
+    val showSnackBarEvent: LiveData<Boolean>
+        get() = _showSnackBarEvent
 
     init {
         initializeTonight()
@@ -40,6 +65,12 @@ class SleepTrackerViewModel(
         }
     }
 
+    /**
+     *  Handling the case of the stopped app or forgotten recording,
+     *  the start and end times will be the same.
+     *  If the start time and end time are not the same, then we do not have an unfinished
+     *  recording.
+     */
     private suspend fun getTonightFromDatabase(): SleepNight? {
         return withContext(Dispatchers.IO) {
             var sleepNight = database.getTonight()
@@ -50,6 +81,7 @@ class SleepTrackerViewModel(
         }
     }
 
+    /** Executes when the START button is clicked */
     fun onStartTracking() {
         uiScope.launch {
             val newNight = SleepNight()
@@ -58,17 +90,27 @@ class SleepTrackerViewModel(
         }
     }
 
+    /** Executes when the STOP button is clicked */
     fun onStopTracking() {
         uiScope.launch {
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
-            _navigateToSleepQuality.value = oldNight
             update(oldNight)
+            _navigateToSleepQuality.value = oldNight
         }
     }
 
+    /**
+     * Call this immediately after navigating to SleepQualityFragment.
+     * It will clear the navigation request, so if the user rotates their phone
+     * it won't navigate twice.
+     */
     fun doneNavigating() {
         _navigateToSleepQuality.value = null
+    }
+
+    fun doneShowingSnackBar() {
+        _showSnackBarEvent.value = false
     }
 
     private suspend fun insert(night: SleepNight) {
@@ -83,10 +125,12 @@ class SleepTrackerViewModel(
         }
     }
 
+    /** Executes when the CLEAR button is clicked */
     fun onClear() {
         uiScope.launch {
             clear()
             tonight.value = null
+            _showSnackBarEvent.value = true
         }
     }
 
