@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import com.olutoba.colormyviews.databinding.ActivityMainBinding
 
+/**@author Onikoyi Damola Olutoba
+ * @since 12/09/2021
+ * */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
