@@ -12,7 +12,7 @@ interface SleepDatabaseDao {
     @Insert
     fun insert(night: SleepNight)
 
-    /** When updating a row with a value already set in a colum, replaces
+    /** When updating a row with a value already set in a column, replaces
      * the old value with the new one.
      * @param night new value to write
      * */
@@ -31,8 +31,8 @@ interface SleepDatabaseDao {
     @Query("DELETE FROM daily_sleep_quality_table")
     fun clear()
 
-    /** Selects and returns all rows in the table,
-     * sorted by start time in descending order.
+    /** Selects and returns all rows in the table sorted by
+     * start time in descending order.
      * */
     @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC")
     fun getAllNights(): LiveData<List<SleepNight>>
