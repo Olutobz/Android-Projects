@@ -44,7 +44,7 @@ class SleepTrackerViewModel(
      * If there are any nights in the database, show the CLEAR button.
      */
     val clearButtonVisible = Transformations.map(nights) {
-        it?.isEmpty()
+        it?.isNotEmpty()
     }
 
     private val _navigateToSleepQuality = MutableLiveData<SleepNight?>()
