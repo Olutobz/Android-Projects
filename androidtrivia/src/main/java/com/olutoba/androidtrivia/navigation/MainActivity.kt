@@ -11,6 +11,9 @@ import androidx.navigation.ui.NavigationUI
 import com.olutoba.androidtrivia.R
 import com.olutoba.androidtrivia.databinding.ActivityMainBinding
 
+/**@author Onikoyi Damola Olutoba
+ * @since 14/09/2021
+ * */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
