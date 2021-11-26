@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.olutoba.sleepqualitytracker.R
 import com.olutoba.sleepqualitytracker.database.SleepDatabase
 import com.olutoba.sleepqualitytracker.databinding.FragmentSleepQualityBinding
@@ -30,7 +31,7 @@ class SleepQualityFragment : Fragment() {
             inflater, R.layout.fragment_sleep_quality, container, false
         )
 
-        val args = SleepQualityFragmentArgs.fromBundle(requireArguments())
+        val args by navArgs<SleepQualityFragmentArgs>()
         val application = requireNotNull(this.activity).application
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
         val viewModelFactory = SleepQualityViewModelFactory(args.sleepNightKey, dataSource)
@@ -38,8 +39,9 @@ class SleepQualityFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory)[SleepQualityViewModel::class.java]
 
         binding.sleepQualityViewModel = sleepQualityViewModel
+
         sleepQualityViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, {
-            if (it == true) {
+            if (it == true) { // Observer state is true.
                 this.findNavController()
                     .navigate(SleepQualityFragmentDirections.actionSleepQualityFragmentToSleepTrackerFragment())
                 sleepQualityViewModel.doneNavigating()
