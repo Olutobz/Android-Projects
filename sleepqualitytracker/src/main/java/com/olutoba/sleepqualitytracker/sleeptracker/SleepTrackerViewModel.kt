@@ -50,6 +50,7 @@ class SleepTrackerViewModel(
         }
     }
 
+    /* Executes when the START button is clicked */
     fun onStartTracking() {
         uiScope.launch {
             val newNight = SleepNight()
@@ -58,12 +59,13 @@ class SleepTrackerViewModel(
         }
     }
 
+    /* Executes when the STOP button is clicked */
     fun onStopTracking() {
         uiScope.launch {
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
-            _navigateToSleepQuality.value = oldNight
             update(oldNight)
+            _navigateToSleepQuality.value = oldNight
         }
     }
 
@@ -83,6 +85,7 @@ class SleepTrackerViewModel(
         }
     }
 
+    /* Executes when the CLEAR button is clicked */
     fun onClear() {
         uiScope.launch {
             clear()
