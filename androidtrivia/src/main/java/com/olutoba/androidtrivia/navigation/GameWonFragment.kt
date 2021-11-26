@@ -1,5 +1,6 @@
 package com.olutoba.androidtrivia.navigation
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -30,6 +31,7 @@ class GameWonFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
