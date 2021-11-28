@@ -31,8 +31,6 @@ abstract class SleepDatabase : RoomDatabase() {
         private var INSTANCE: SleepDatabase? = null
 
         /**
-         * Helper function to get the database.
-         *
          * If a database has already been retrieved, the previous database will be returned.
          * Otherwise, create a new database.
          *
