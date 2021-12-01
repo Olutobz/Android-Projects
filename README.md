@@ -18,3 +18,4 @@ This code demonstrates the [Android Architecture components](https://developer.a
 ## Sleep Quality Tracker
 The sleep tracker application is an app for recording sleep data for each night.  You can record a start and stop time, assign a quality rating, and clear the database.
 This version of the app contains the [Room database](https://developer.android.com/training/data-storage/room) that holds the sleep data and instrumented tests to verify that this backend works.
+Later used the [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview) to display a list of results in a RecyclerView instead of a static ScrollView.

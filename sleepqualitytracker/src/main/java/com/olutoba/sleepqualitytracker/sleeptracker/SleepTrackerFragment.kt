@@ -35,7 +35,18 @@ class SleepTrackerFragment : Fragment() {
         val sleepTrackerViewModel =
             ViewModelProvider(this, viewModelFactory)[SleepTrackerViewModel::class.java]
 
+        // To use the View Model with data binding, you have to explicitly give the
+        // binding object a reference to it.
         binding.sleepTrackerViewModel = sleepTrackerViewModel
+
+        val adapter = SleepNightAdapter()
+        binding.sleepList.adapter = adapter
+
+        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
+            it?.let {
+                adapter.data = it
+            }
+        })
 
         sleepTrackerViewModel.navigateToSleepQuality.observe(viewLifecycleOwner, { night ->
             night?.let {
@@ -58,7 +69,8 @@ class SleepTrackerFragment : Fragment() {
             }
         })
 
-        // Specify the current activity as the lifecycle owner.
+        // Specify the current activity as the lifecycle owner of the binding.
+        // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this.viewLifecycleOwner
 
         return binding.root
