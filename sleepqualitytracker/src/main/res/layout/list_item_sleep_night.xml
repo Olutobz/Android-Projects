@@ -9,11 +9,16 @@
         <variable
             name="sleep"
             type="com.olutoba.sleepqualitytracker.database.SleepNight" />
+
+        <variable
+            name="clickListener"
+            type="com.olutoba.sleepqualitytracker.sleeptracker.SleepNightAdapter.SleepNightListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(sleep)}">
 
         <ImageView
             android:id="@+id/quality_image"
@@ -32,26 +37,13 @@
         <TextView
             android:id="@+id/quality_string"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/sleep_length"
-            app:layout_constraintStart_toStartOf="@+id/sleep_length"
-            app:layout_constraintTop_toBottomOf="@+id/sleep_length"
+            app:layout_constraintEnd_toEndOf="@+id/quality_image"
+            app:layout_constraintStart_toStartOf="@+id/quality_image"
+            app:layout_constraintTop_toBottomOf="@+id/quality_image"
             app:sleepQualityString="@{sleep}"
-            tools:text="Excellent!!!" />
-
-        <TextView
-            android:id="@+id/sleep_length"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/quality_image"
-            app:layout_constraintTop_toTopOf="@+id/quality_image"
-            app:sleepDurationFormatted="@{sleep}"
-            tools:text="Wednesday" />
+            tools:text="Excellent!!" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
