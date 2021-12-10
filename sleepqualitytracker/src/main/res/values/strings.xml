@@ -5,6 +5,7 @@
     <string name="app_name">Sleep Quality Tracker</string>
     <string name="sleep_tracker_fragment">SleepTrackerFragment</string>
     <string name="sleep_quality_fragment">SleepQualityFragment</string>
+    <string name="sleep_detail_fragment">SleepDetailFragment</string>
 
     <!--  Button labels  -->
     <string name="start">Start</string>
