@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Note that the animations may show red in Android Studio;
-     however, they are present and working perfectly fine. -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,6 +14,11 @@
         <action
             android:id="@+id/action_sleep_tracker_fragment_to_sleep_quality_fragment"
             app:destination="@id/sleep_quality_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_sleep_tracker_fragment_to_sleepDetailFragment"
+            app:destination="@id/sleepDetailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
@@ -34,7 +37,6 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/sleep_tracker_fragment"
             app:popUpToInclusive="true" />
-
     </fragment>
 
     <fragment
@@ -51,7 +53,6 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/sleep_tracker_fragment"
             app:popUpToInclusive="true" />
-
     </fragment>
 
 </navigation>
