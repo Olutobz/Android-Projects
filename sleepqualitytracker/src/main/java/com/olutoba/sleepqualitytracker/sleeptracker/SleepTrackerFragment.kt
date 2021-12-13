@@ -43,8 +43,23 @@ class SleepTrackerFragment : Fragment() {
         val manager = GridLayoutManager(activity, 3)
         binding.sleepList.layoutManager = manager
 
-        val adapter = SleepNightAdapter()
+        val adapter = SleepNightAdapter(SleepNightAdapter.SleepNightListener { nightId ->
+            sleepTrackerViewModel.onSleepNightClicked(nightId)
+        })
+
         binding.sleepList.adapter = adapter
+
+        sleepTrackerViewModel.showSnackBarEvent.observe(viewLifecycleOwner, {
+            if (it == true) { // Observer state is true.
+                Snackbar.make(
+                    requireActivity().findViewById(android.R.id.content),
+                    getString(R.string.cleared_message), Snackbar.LENGTH_SHORT
+                ).show()
+                // Reset state to make sure the snackbar is only shown once, even if the device
+                // has a configuration change.
+                sleepTrackerViewModel.doneShowingSnackBar()
+            }
+        })
 
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
             it?.let {
@@ -63,13 +78,20 @@ class SleepTrackerFragment : Fragment() {
             }
         })
 
-        sleepTrackerViewModel.showSnackBarEvent.observe(viewLifecycleOwner, {
-            if (it == true) { // Observer state is true.
-                Snackbar.make(
-                    requireActivity().findViewById(android.R.id.content),
-                    getString(R.string.cleared_message), Snackbar.LENGTH_SHORT
-                ).show()
-                sleepTrackerViewModel.doneShowingSnackBar()
+        sleepTrackerViewModel.navigateToSleepDataQuality.observe(viewLifecycleOwner, { night ->
+            night?.let {
+                findNavController().navigate(
+                    SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepDetailFragment(
+                        night
+                    )
+                )
+                sleepTrackerViewModel.onSleepDataQualityNavigated()
+            }
+        })
+
+        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
+            it.let {
+                adapter.submitList(it)
             }
         })
 
