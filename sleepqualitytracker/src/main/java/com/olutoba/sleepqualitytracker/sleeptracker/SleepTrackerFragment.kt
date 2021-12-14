@@ -61,12 +61,6 @@ class SleepTrackerFragment : Fragment() {
             }
         })
 
-        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
-            it?.let {
-                adapter.submitList(it)
-            }
-        })
-
         sleepTrackerViewModel.navigateToSleepQuality.observe(viewLifecycleOwner, { night ->
             night?.let {
                 this.findNavController().navigate(
@@ -91,7 +85,7 @@ class SleepTrackerFragment : Fragment() {
 
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, {
             it.let {
-                adapter.submitList(it)
+                adapter.addHeaderAndSubmitList(it)
             }
         })
 
