@@ -23,6 +23,20 @@ class SleepNightAdapter(private val clickListener: SleepNightListener) :
 
     private val adapterScope = CoroutineScope(Dispatchers.Default)
 
+    fun addHeaderAndSubmitList(list: List<SleepNight>?) {
+        adapterScope.launch {
+            val items = when (list) {
+                null -> listOf(DataItem.Header)
+                else -> listOf(DataItem.Header) + list.map {
+                    DataItem.SleepNightItem(it)
+                }
+            }
+            withContext(Dispatchers.Main) {
+                submitList(items)
+            }
+        }
+    }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ViewHolder -> {
@@ -34,8 +48,8 @@ class SleepNightAdapter(private val clickListener: SleepNightListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
+            ITEM_VIEW_TYPE_HEADER -> TextViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM -> ViewHolder.from(parent)
-            ITEM_VIEW_TYPE_HEADER -> TextViewHolder(parent)
             else -> throw ClassCastException("Unknown viewType $viewType")
         }
     }
@@ -67,7 +81,6 @@ class SleepNightAdapter(private val clickListener: SleepNightListener) :
     }
 
     class TextViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         companion object {
             fun from(parent: ViewGroup): TextViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -78,7 +91,6 @@ class SleepNightAdapter(private val clickListener: SleepNightListener) :
     }
 
     class SleepNightDiffCallback : DiffUtil.ItemCallback<DataItem>() {
-
         override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
             return oldItem == newItem
         }
@@ -90,20 +102,6 @@ class SleepNightAdapter(private val clickListener: SleepNightListener) :
 
     class SleepNightListener(val clickListener: (sleepId: Long) -> Unit) {
         fun onClick(night: SleepNight) = clickListener(night.id)
-    }
-
-    fun addHeaderAndSubmitList(list: List<SleepNight>?) {
-        adapterScope.launch {
-            val items = when (list) {
-                null -> listOf(DataItem.Header)
-                else -> listOf(DataItem.Header) + list.map {
-                    DataItem.SleepNightItem(it)
-                }
-            }
-            withContext(Dispatchers.Main) {
-                submitList(items)
-            }
-        }
     }
 
     sealed class DataItem {
