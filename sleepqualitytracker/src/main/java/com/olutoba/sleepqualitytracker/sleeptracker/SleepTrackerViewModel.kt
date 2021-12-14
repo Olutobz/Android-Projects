@@ -13,9 +13,6 @@ class SleepTrackerViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-/*    private var viewModelJob = Job()
-    private var uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)*/
-
     private var tonight = MutableLiveData<SleepNight?>()
     val nights = database.getAllNights()
 
