@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
 import com.olutoba.sleepqualitytracker.database.SleepNight
-import kotlinx.coroutines.Job
 
 
 class SleepDetailViewModel(
@@ -15,9 +14,6 @@ class SleepDetailViewModel(
 ) : ViewModel() {
 
     val database = datasource
-
-    private val viewModelJob = Job()
-
     private val night = MediatorLiveData<SleepNight>()
 
     fun getNight() = night
@@ -36,11 +32,6 @@ class SleepDetailViewModel(
 
     fun onClose() {
         _navigateToSleepTracker.value = true
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 
 }

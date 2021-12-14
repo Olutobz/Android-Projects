@@ -1,4 +1,4 @@
-package com.olutoba.sleepqualitytracker
+package com.olutoba.sleepqualitytracker.utils
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
@@ -6,6 +6,7 @@ import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import androidx.core.text.HtmlCompat
+import com.olutoba.sleepqualitytracker.R
 import com.olutoba.sleepqualitytracker.database.SleepNight
 import java.text.SimpleDateFormat
 import java.util.*

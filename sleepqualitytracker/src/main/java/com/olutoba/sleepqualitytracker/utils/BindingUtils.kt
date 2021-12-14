@@ -1,8 +1,9 @@
-package com.olutoba.sleepqualitytracker
+package com.olutoba.sleepqualitytracker.utils
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.olutoba.sleepqualitytracker.R
 import com.olutoba.sleepqualitytracker.database.SleepNight
 
 
