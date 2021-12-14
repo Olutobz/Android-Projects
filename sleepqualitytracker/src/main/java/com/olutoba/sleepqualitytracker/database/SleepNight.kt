@@ -9,10 +9,10 @@ data class SleepNight(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "nightId")
-    val id: Long = 0L,
+    var id: Long = 0L,
 
     @ColumnInfo(name = "start_time_milli")
-    val startTimeMilli: Long = System.currentTimeMillis(),
+    var startTimeMilli: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "end_time_milli")
     var endTimeMilli: Long = System.currentTimeMillis(),
