@@ -41,7 +41,10 @@ class SleepDetailFragment : Fragment() {
 
         sleepDetailViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, {
             if (it == true) { // Observed state is true
-                findNavController().navigate(SleepDetailFragmentDirections.actionSleepDetailFragmentToSleepTrackerFragment())
+                findNavController().navigate(
+                    SleepDetailFragmentDirections
+                        .actionSleepDetailFragmentToSleepTrackerFragment()
+                )
                 sleepDetailViewModel.doneNavigating()
             }
         })
