@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
 import com.olutoba.sleepqualitytracker.database.SleepNight
-import com.olutoba.sleepqualitytracker.formatNights
+import com.olutoba.sleepqualitytracker.utils.formatNights
 import kotlinx.coroutines.*
 
 
