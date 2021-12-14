@@ -4,7 +4,6 @@
     package="com.olutoba.sleepqualitytracker">
 
     <application
-        android:name=".SleepApplication"
         android:allowBackup="true"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"

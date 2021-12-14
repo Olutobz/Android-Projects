@@ -26,7 +26,7 @@ fun TextView.setSleepQualityString(item: SleepNight?) {
 fun ImageView.setSleepImage(item: SleepNight?) {
     item?.let {
         setImageResource(
-            when (it.sleepQuality) {
+            when (item.sleepQuality) {
                 0 -> R.drawable.ic_sleep_0
                 1 -> R.drawable.ic_sleep_1
                 2 -> R.drawable.ic_sleep_2
