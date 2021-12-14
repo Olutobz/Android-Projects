@@ -3,6 +3,7 @@ package com.olutoba.sleepqualitytracker.sleepquality
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.olutoba.sleepqualitytracker.database.SleepDatabaseDao
 import kotlinx.coroutines.*
 
@@ -11,8 +12,6 @@ class SleepQualityViewModel(
     val database: SleepDatabaseDao
 ) : ViewModel() {
 
-    private val viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     private val _navigateToSleepTracker = MutableLiveData<Boolean?>()
     val navigateToSleepTracker: LiveData<Boolean?>
         get() = _navigateToSleepTracker
@@ -22,18 +21,13 @@ class SleepQualityViewModel(
     }
 
     fun onSetSleepQuality(quality: Int) {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                val tonight = database.get(sleepNightKey) ?: return@withContext
-                tonight.sleepQuality = quality
-                database.update(tonight)
-            }
+        viewModelScope.launch {
+            // IO is a thread pool for running operations that access the disk, such as
+            // our Room database.
+            val tonight = database.get(sleepNightKey) ?: return@launch
+            tonight.sleepQuality = quality
+            database.update(tonight)
             _navigateToSleepTracker.value = true
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 }
