@@ -11,7 +11,7 @@ import com.olutoba.sleepqualitytracker.database.SleepNight
 fun TextView.setSleepDurationFormatted(item: SleepNight?) {
     item?.let {
         text =
-            convertDurationToFormatted(item.startTimeMilli, item.startTimeMilli, context.resources)
+            convertDurationToFormatted(item.startTimeMilli, item.endTimeMilli, context.resources)
     }
 }
 
