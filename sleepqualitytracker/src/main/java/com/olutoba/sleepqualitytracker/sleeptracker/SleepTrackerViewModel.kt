@@ -95,11 +95,13 @@ class SleepTrackerViewModel(
      *  recording.
      */
     private suspend fun getTonightFromDatabase(): SleepNight? {
-        var night = database.getTonight()
-        if (night?.endTimeMilli != night?.startTimeMilli) {
-            night = null
+        return withContext(Dispatchers.IO) {
+            var night = database.getTonight()
+            if (night?.endTimeMilli != night?.startTimeMilli) {
+                night = null
+            }
+            night
         }
-        return night
     }
 
     private suspend fun insert(night: SleepNight) {
