@@ -79,6 +79,9 @@
         <entry key="guesstheword/src/main/res/layout/game_fragment.xml" value="0.25" />
         <entry key="guesstheword/src/main/res/layout/score_fragment.xml" value="0.2" />
         <entry key="guesstheword/src/main/res/layout/title_fragment.xml" value="0.12537993920972645" />
+        <entry key="marsrealestate/src/main/res/layout/activity_main.xml" value="0.2578125" />
+        <entry key="marsrealestate/src/main/res/layout/fragment_detail.xml" value="0.2578125" />
+        <entry key="marsrealestate/src/main/res/layout/fragment_overview.xml" value="0.24270833333333333" />
         <entry key="myapplication/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="sleepqualitytracker/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25555555555555554" />
         <entry key="sleepqualitytracker/src/main/res/drawable-v24/ic_launcher_sleep_tracker_background.xml" value="0.262037037037037" />
