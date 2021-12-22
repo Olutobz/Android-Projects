@@ -8,8 +8,8 @@ import com.olutoba.marsrealestate.network.MarsProperty
 class DetailViewModelFactory(
     private val marsProperty: MarsProperty,
     private val application: Application
-) :
-    ViewModelProvider.Factory {
+) : ViewModelProvider.Factory {
+
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
