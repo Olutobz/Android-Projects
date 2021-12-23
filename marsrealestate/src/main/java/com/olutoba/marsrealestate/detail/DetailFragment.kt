@@ -9,7 +9,7 @@ import com.olutoba.marsrealestate.databinding.FragmentDetailBinding
 
 
 /**
- * This [Fragment] will show the detailed information about a selected piece of Mars real estate.
+ * This Fragment will show the detailed information about a selected piece of Mars real estate.
  */
 class DetailFragment : Fragment() {
 
