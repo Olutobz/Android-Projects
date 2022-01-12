@@ -1,4 +1,4 @@
-package com.olutoba.marsrealestate.overview
+package com.olutoba.marsrealestate.ui.fragments.overview
 
 import android.os.Bundle
 import android.view.*

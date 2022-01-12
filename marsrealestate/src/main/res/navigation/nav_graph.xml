@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.olutoba.marsrealestate.overview.OverviewFragment"
+        android:name="com.olutoba.marsrealestate.ui.fragments.overview.OverviewFragment"
         android:label="OverviewFragment"
         tools:layout="@layout/fragment_overview">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.olutoba.marsrealestate.detail.DetailFragment"
+        android:name="com.olutoba.marsrealestate.ui.fragments.detail.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
     </fragment>
