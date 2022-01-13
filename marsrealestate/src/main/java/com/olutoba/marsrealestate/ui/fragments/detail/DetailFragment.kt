@@ -1,4 +1,4 @@
-package com.olutoba.marsrealestate.detail
+package com.olutoba.marsrealestate.ui.fragments.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater

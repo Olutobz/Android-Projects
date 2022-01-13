@@ -1,4 +1,4 @@
-package com.olutoba.marsrealestate.detail
+package com.olutoba.marsrealestate.ui.fragments.detail
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
