@@ -1,4 +1,4 @@
-package com.olutoba.marsrealestate.network
+package com.olutoba.marsrealestate.networking
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
