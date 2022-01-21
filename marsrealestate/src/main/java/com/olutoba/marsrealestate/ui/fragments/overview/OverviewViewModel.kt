@@ -12,7 +12,6 @@ class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the status of the most recent request
     private val _status = MutableLiveData<String>()
-    // The external immutable LiveData for the request status String
     val status: LiveData<String>
         get() = _status
 
@@ -28,13 +27,18 @@ class OverviewViewModel : ViewModel() {
     }
 
     /**
-     * Sets the value of the status LiveData to the Mars API status.
+     * Gets Mars real estate property information from the Mars API Retrofit service and updates the
+     * [MarsProperty] [LiveData]. The Retrofit service returns a List of MarsProperty, which
+     * is the result of the transaction.
      */
     private fun getMarsRealEstateProperties() {
         viewModelScope.launch {
             try {
                 val listResult = MarsApi.retrofitApiService.getProperties()
                 _status.value = "Success: ${listResult.size} Mars properties retrieved"
+                if (listResult.isNotEmpty()) {
+                    _property.value = listResult[0]
+                }
             } catch (e: Exception) {
                 _status.value = "Failure: ${e.message}}"
             }
