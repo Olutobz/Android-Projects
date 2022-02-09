@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.olutoba.marsrealestate.ui.fragments.overview.OverviewViewModel" />
+            name="property"
+            type="com.olutoba.marsrealestate.networking.MarsProperty" />
     </data>
 
     <ImageView
@@ -19,7 +19,7 @@
         android:contentDescription="@string/mars_image"
         android:padding="2dp"
         android:scaleType="centerCrop"
-        app:imageUrl="@{viewModel.property.imgSrcUrl}"
+        app:imageUrl="@{property.imgSrcUrl}"
         tools:src="@tools:sample/backgrounds/scenic" />
 
 </layout>
