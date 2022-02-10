@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.olutoba.marsrealestate.networking.MarsApi
-import com.olutoba.marsrealestate.networking.MarsProperty
+import com.olutoba.marsrealestate.network.MarsApi
+import com.olutoba.marsrealestate.network.MarsProperty
 import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
@@ -16,7 +16,7 @@ class OverviewViewModel : ViewModel() {
         get() = _status
 
     private val _properties = MutableLiveData<List<MarsProperty>>()
-    val property: LiveData<List<MarsProperty>>
+    val properties: LiveData<List<MarsProperty>>
         get() = _properties
 
     /**
