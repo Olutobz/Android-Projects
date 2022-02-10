@@ -4,8 +4,11 @@ package com.olutoba.marsrealestate
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.olutoba.marsrealestate.network.MarsProperty
+import com.olutoba.marsrealestate.ui.fragments.overview.PhotoGridAdapter
 
 
 val sharedOptions = RequestOptions()
@@ -22,4 +25,10 @@ fun bindImage(imageView: ImageView, imageUrl: String?) {
             .apply(sharedOptions)
             .into(imageView)
     }
+}
+
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
+    val adapter = recyclerView.adapter as PhotoGridAdapter
+    adapter.submitList(data)
 }
