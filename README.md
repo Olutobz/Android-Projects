@@ -21,7 +21,7 @@ This version of the app contains the [Room database](https://developer.android.c
 Later used the [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview) to display a list of results in a RecyclerView instead of a static ScrollView.
 
 ## MarsRealEstate
-MarsRealEstate is a simple demo app using ViewModel & LiveData with Retrofit, Glide and Moshi in Kotlin.
+MarsRealEstate is a simple demo app using ViewModel & LiveData with Retrofit, Glide and Moshi libraries in Kotlin.
 
 This app demonstrates the following views and techniques:
 - [Retrofit](https://square.github.io/retrofit/) to make api calls to an HTTP web service.
