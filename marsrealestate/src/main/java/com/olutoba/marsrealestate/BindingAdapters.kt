@@ -18,7 +18,7 @@ val sharedOptions = RequestOptions()
     .error(R.drawable.ic_broken_image)
 
 /** Use the Glide library to load an image by URL into an ImageView */
-@BindingAdapter("imageUrl")
+@BindingAdapter("app:imageUrl")
 fun bindImage(imageView: ImageView, imageUrl: String?) {
     imageUrl?.let {
         val imageUri = it.toUri().buildUpon().scheme("https").build()
@@ -29,13 +29,13 @@ fun bindImage(imageView: ImageView, imageUrl: String?) {
     }
 }
 
-@BindingAdapter("listData")
+@BindingAdapter("app:listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
     adapter.submitList(data)
 }
 
-@BindingAdapter("marsApiStatus")
+@BindingAdapter("app:marsApiStatus")
 fun bindStatus(statusImageView: ImageView, status: MarsApiStatus?) {
     when (status) {
         MarsApiStatus.LOADING -> {
