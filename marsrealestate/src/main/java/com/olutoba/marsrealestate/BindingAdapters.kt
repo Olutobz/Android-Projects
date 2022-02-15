@@ -36,8 +36,8 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
 }
 
 @BindingAdapter("marsApiStatus")
-fun bindStatus(statusImageView: ImageView, apiStatus: MarsApiStatus?) {
-    when (apiStatus) {
+fun bindStatus(statusImageView: ImageView, status: MarsApiStatus?) {
+    when (status) {
         MarsApiStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
