@@ -3,7 +3,7 @@ package com.olutoba.marsrealestate.ui.fragments.detail
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.olutoba.marsrealestate.networking.MarsProperty
+import com.olutoba.marsrealestate.network.MarsProperty
 
 class DetailViewModelFactory(
     private val marsProperty: MarsProperty,
