@@ -38,20 +38,17 @@ class OverviewViewModel : ViewModel() {
     }
 
     /**
-     * Gets Mars real estate property information from the Mars API Retrofit service and updates the
-     * [MarsProperty] [LiveData]. The Retrofit service returns a List of MarsProperty, which
+     * Gets filtered Mars real estate property information from the Mars API Retrofit service and updates the
+     * [MarsProperty] [List] and [MarsApiStatus] [LiveData]. The Retrofit service returns a List of MarsProperty, which
      * is the result of the transaction.
+     * @param filter the [MarsApiFilter] that is sent as part of the web server request
      */
     private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
         viewModelScope.launch {
+            _status.value = MarsApiStatus.LOADING
             try {
-                _status.value = MarsApiStatus.LOADING
-                // this runs on a thread managed by retrofit
-                val listResult = MarsApi.retrofitApiService.getProperties(filter.value)
+                _properties.value = MarsApi.retrofitApiService.getProperties(filter.value)
                 _status.value = MarsApiStatus.DONE
-                if (listResult.isNotEmpty()) {
-                    _properties.value = listResult
-                }
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR
                 _properties.value = ArrayList()
@@ -59,15 +56,26 @@ class OverviewViewModel : ViewModel() {
         }
     }
 
+    /**
+     * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
+     * @param marsProperty The [MarsProperty] that was clicked on.
+     */
     fun displayPropertyDetails(marsProperty: MarsProperty) {
         _navigateToSelectedProperty.value = marsProperty
     }
 
-
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedProperty is set to null
+     */
     fun displayPropertyDetailsComplete() {
         _navigateToSelectedProperty.value = null
     }
 
+    /**
+     * Updates the data set filter for the web services by querying the data with the new filter
+     * by calling [getMarsRealEstateProperties]
+     * @param filter the [MarsApiFilter] that is sent as part of the web server request
+     */
     fun updateFilter(filter: MarsApiFilter) {
         getMarsRealEstateProperties(filter)
     }
