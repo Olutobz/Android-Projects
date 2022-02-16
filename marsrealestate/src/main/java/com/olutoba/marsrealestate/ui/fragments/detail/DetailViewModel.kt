@@ -8,6 +8,7 @@ import androidx.lifecycle.Transformations
 import com.olutoba.marsrealestate.R
 import com.olutoba.marsrealestate.network.MarsProperty
 
+
 class DetailViewModel(marsProperty: MarsProperty, application: Application) :
     AndroidViewModel(application) {
 
@@ -19,6 +20,8 @@ class DetailViewModel(marsProperty: MarsProperty, application: Application) :
         _selectedProperty.value = marsProperty
     }
 
+    // The displayPropertyPrice formatted Transformation Map LiveData, which displays the sale
+    // or rental price.
     val displayPropertyPrice = Transformations.map(selectedProperty) {
         application.applicationContext.getString(
             when (it.isRental) {
@@ -28,6 +31,8 @@ class DetailViewModel(marsProperty: MarsProperty, application: Application) :
         )
     }
 
+    // The displayPropertyType formatted Transformation Map LiveData, which displays the
+    // "For Rent/Sale" String
     val displayPropertyType = Transformations.map(selectedProperty) {
         application.applicationContext.getString(
             R.string.display_type,
