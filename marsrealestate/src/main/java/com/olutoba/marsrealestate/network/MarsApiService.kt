@@ -31,6 +31,10 @@ interface MarsApiService {
     suspend fun getProperties(@Query("filter") type: String): List<MarsProperty>
 }
 
+
+/**
+ * A public Api object that exposes the lazy-initialized Retrofit service
+ */
 object MarsApi {
     val retrofitApiService: MarsApiService by lazy {
         retrofit.create(MarsApiService::class.java)
