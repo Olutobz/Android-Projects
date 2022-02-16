@@ -11,7 +11,7 @@ import androidx.core.content.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.olutoba.guesstheword.R
 import com.olutoba.guesstheword.databinding.GameFragmentBinding
 import com.olutoba.guesstheword.viewmodel.GameViewModel
@@ -38,20 +38,20 @@ class GameFragment : Fragment() {
         binding.gameViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.eventGameFinish.observe(viewLifecycleOwner, { hasFinished ->
+        viewModel.eventGameFinish.observe(viewLifecycleOwner) { hasFinished ->
             if (hasFinished) {
                 gameFinished()
                 viewModel.onGameFinishComplete()
             }
-        })
+        }
 
         // Buzzes when triggered with different buzz events
-        viewModel.eventBuzz.observe(viewLifecycleOwner, { buzzType ->
+        viewModel.eventBuzz.observe(viewLifecycleOwner) { buzzType ->
             if (buzzType != GameViewModel.BuzzType.NO_BUZZ) {
                 buzz(buzzType.pattern)
                 viewModel.onBuzzComplete()
             }
-        })
+        }
 
         return binding.root
 
@@ -72,7 +72,7 @@ class GameFragment : Fragment() {
     private fun gameFinished() {
         val currentScore = viewModel.score.value ?: 0
         val action = GameFragmentDirections.actionGameToScore(currentScore)
-        findNavController(this).navigate(action)
+        this.findNavController().navigate(action)
     }
 
 }

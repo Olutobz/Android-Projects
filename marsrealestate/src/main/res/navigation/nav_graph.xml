@@ -13,7 +13,11 @@
         tools:layout="@layout/fragment_overview">
         <action
             android:id="@+id/action_overviewFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -21,6 +25,9 @@
         android:name="com.olutoba.marsrealestate.ui.fragments.detail.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.olutoba.marsrealestate.network.MarsProperty" />
     </fragment>
 
 </navigation>

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.olutoba.marsrealestate.databinding.GridViewItemBinding
 import com.olutoba.marsrealestate.network.MarsProperty
 
-class PhotoGridAdapter :
+class PhotoGridAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<MarsProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
 
     /** Allows the RecyclerView to determine which items have changed when the [List] of
@@ -22,19 +22,6 @@ class PhotoGridAdapter :
         override fun areContentsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
             return oldItem.id == newItem.id
         }
-
-    }
-
-    class MarsPropertyViewHolder(private var binding: GridViewItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(marsProperty: MarsProperty) {
-            binding.property = marsProperty
-            // This forces the data binding to execute immediately, which allows the
-            // RecyclerView to make the correct view size measurements.
-            binding.executePendingBindings()
-        }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsPropertyViewHolder {
@@ -43,7 +30,23 @@ class PhotoGridAdapter :
 
     override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
         val marsProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(marsProperty)
+        }
         holder.bind(marsProperty)
     }
 
+    class OnClickListener(val clickListener: (marsProperty: MarsProperty) -> Unit) {
+        fun onClick(marsProperty: MarsProperty) = clickListener(marsProperty)
+    }
+
+    class MarsPropertyViewHolder(private var binding: GridViewItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(marsProperty: MarsProperty) {
+            binding.property = marsProperty
+            // This forces the data binding to execute immediately, which allows the
+            // RecyclerView to make the correct view size measurements.
+            binding.executePendingBindings()
+        }
+    }
 }

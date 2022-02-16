@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.olutoba.marsrealestate.databinding.FragmentDetailBinding
 
 
@@ -21,6 +22,12 @@ class DetailFragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
+
+        val marsProperty = DetailFragmentArgs.fromBundle(requireArguments()).selectedProperty
+        val viewModelFactory = DetailViewModelFactory(marsProperty, application)
+        val viewModel = ViewModelProvider(this, viewModelFactory)[DetailViewModel::class.java]
+        binding.viewModel = viewModel
+
         return binding.root
     }
 
