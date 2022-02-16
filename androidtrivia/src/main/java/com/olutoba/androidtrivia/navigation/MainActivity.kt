@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         // Lock the NavigationDrawer everywhere in the app except in its StartDestination
         navController.addOnDestinationChangedListener { controller, navDestination, _ ->
-            if (navDestination.id == controller.graph.startDestination) {
+            if (navDestination.id == controller.graph.startDestinationId) {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
             } else {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
