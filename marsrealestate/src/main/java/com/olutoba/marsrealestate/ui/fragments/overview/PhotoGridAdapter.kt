@@ -16,11 +16,11 @@ class PhotoGridAdapter(private val onClickListener: OnClickListener) :
      * */
     companion object DiffCallback : DiffUtil.ItemCallback<MarsProperty>() {
         override fun areItemsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
-            return oldItem === newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem == newItem
         }
     }
 
