@@ -72,7 +72,8 @@
         <entry key="desertpusher/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="desertpusher/src/main/res/menu/main_menu.xml" value="0.2578125" />
         <entry key="desertpusher/src/main/res/mipmap-anydpi-v26/ic_dessert_pusher.xml" value="0.24351851851851852" />
-        <entry key="devbyteviewer/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
+        <entry key="devbyteviewer/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="devbyteviewer/src/main/res/layout/fragment_dev_byte.xml" value="0.25833333333333336" />
         <entry key="diceroller/src/main/res/drawable/dice_1.xml" value="0.3041025641025641" />
         <entry key="diceroller/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="guesstheword/src/main/res/drawable/ic_launcher_background.xml" value="0.25092592592592594" />
