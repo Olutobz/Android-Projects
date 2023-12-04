@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Offline Storage</string>
+    <string name="enter_key">Enter key...</string>
+    <string name="enter_value">Enter value...</string>
+    <string name="save">Save</string>
+    <string name="read">Read</string>
+</resources>
