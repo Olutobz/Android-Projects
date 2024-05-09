@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.olutoba.guesstheword.R
 import com.olutoba.guesstheword.databinding.GameFragmentBinding
+import com.olutoba.guesstheword.viewmodel.BuzzType
 import com.olutoba.guesstheword.viewmodel.GameViewModel
 
 /**
@@ -28,27 +29,22 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
 
-        // Inflate view and obtain an instance of the binding class
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
-
-        // Get the ViewModel
         viewModel = ViewModelProvider(this)[GameViewModel::class.java]
         binding.gameViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.eventGameFinish.observe(viewLifecycleOwner) { hasFinished ->
-            if (hasFinished) {
+        viewModel.eventGameFinish.observe(viewLifecycleOwner) {
+            if (it) {
                 gameFinished()
                 viewModel.onGameFinishComplete()
             }
         }
 
-        // Buzzes when triggered with different buzz events
-        viewModel.eventBuzz.observe(viewLifecycleOwner) { buzzType ->
-            if (buzzType != GameViewModel.BuzzType.NO_BUZZ) {
-                buzz(buzzType.pattern)
+        viewModel.eventBuzz.observe(viewLifecycleOwner) {
+            if (it != BuzzType.NO_BUZZ) {
+                buzz(it.pattern)
                 viewModel.onBuzzComplete()
             }
         }
@@ -66,13 +62,9 @@ class GameFragment : Fragment() {
         }
     }
 
-    /**
-     * Called when the game is finished
-     */
     private fun gameFinished() {
         val currentScore = viewModel.score.value ?: 0
-        val action = GameFragmentDirections.actionGameToScore(currentScore)
-        this.findNavController().navigate(action)
+        findNavController().navigate(GameFragmentDirections.actionGameToScore(currentScore))
     }
 
 }
