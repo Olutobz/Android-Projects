@@ -16,8 +16,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
-    private val binding
-        get() = _binding!!
+    private val binding get() = _binding!!
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -28,10 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSave.setOnClickListener {
             lifecycleScope.launch {
-                save(
-                    binding.etSaveKey.text.toString(),
-                    binding.etSaveValue.text.toString()
-                )
+                save(binding.etSaveKey.text.toString(), binding.etSaveValue.text.toString())
             }
         }
 

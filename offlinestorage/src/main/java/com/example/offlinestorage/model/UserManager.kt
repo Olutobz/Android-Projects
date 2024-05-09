@@ -23,9 +23,7 @@ class UserManager(private val context: Context) {
     private val Context.dataStore: DataStore<Preferences>
             by preferencesDataStore(name = "user_prefs")
 
-    val userNameFlow: Flow<String> = context.dataStore.data.map {
-        it[USER_NAME_KEY] ?: ""
-    }
+    val userNameFlow: Flow<String> = context.dataStore.data.map { it[USER_NAME_KEY] ?: "" }
 
     val userAgeFlow: Flow<Int> = context.dataStore.data.map {
         val age = it[USER_AGE_KEY] ?: 0
@@ -35,9 +33,7 @@ class UserManager(private val context: Context) {
         age
     }
 
-    val userGenderFlow: Flow<Boolean> = context.dataStore.data.map {
-        it[USER_GENDER_KEY] ?: false
-    }
+    val userGenderFlow: Flow<Boolean> = context.dataStore.data.map { it[USER_GENDER_KEY] ?: false }
 
     suspend fun storeUser(age: Int, name: String, isMale: Boolean) {
         context.dataStore.edit { userPref ->
