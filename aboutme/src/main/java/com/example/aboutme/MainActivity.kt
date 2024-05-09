@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding.nicknameText.setOnClickListener {
             updateNickname(it)
         }
+
+
     }
 
     private fun updateNickname(view: View?) {
