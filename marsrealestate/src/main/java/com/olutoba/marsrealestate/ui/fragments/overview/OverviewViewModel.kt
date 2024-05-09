@@ -9,12 +9,6 @@ import com.olutoba.marsrealestate.network.MarsApiFilter
 import com.olutoba.marsrealestate.network.MarsProperty
 import kotlinx.coroutines.launch
 
-enum class MarsApiStatus {
-    LOADING,
-    ERROR,
-    DONE
-}
-
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData String that stores the status of the most recent request
@@ -80,4 +74,10 @@ class OverviewViewModel : ViewModel() {
         getMarsRealEstateProperties(filter)
     }
 
+}
+
+enum class MarsApiStatus {
+    LOADING,
+    ERROR,
+    DONE
 }

@@ -4,10 +4,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="11" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -19,9 +17,11 @@
             <option value="$PROJECT_DIR$/diceroller" />
             <option value="$PROJECT_DIR$/guesstheword" />
             <option value="$PROJECT_DIR$/marsrealestate" />
+            <option value="$PROJECT_DIR$/offlinestorage" />
             <option value="$PROJECT_DIR$/sleepqualitytracker" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
