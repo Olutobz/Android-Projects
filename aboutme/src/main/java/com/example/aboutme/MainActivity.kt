@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             updateNickname(it)
         }
 
-
     }
 
     private fun updateNickname(view: View?) {
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity() {
 
             nicknameEdit.requestFocus()
 
-            // Show the keyboard.
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(nicknameEdit, 0)
         }
