@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Xplore</string>
+    <string name="decline">Decline</string>
+    <string name="proceed">Proceed</string>
 </resources>
