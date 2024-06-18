@@ -18,37 +18,29 @@ class SleepDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         val binding: FragmentSleepDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_sleep_detail, container, false
         )
 
         val application = requireNotNull(this.activity).application
         val arguments = SleepDetailFragmentArgs.fromBundle(requireArguments())
-
-        // Create an instance of the ViewModel Factory.
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
         val viewModelFactory = SleepDetailViewModelFactory(arguments.sleepNightKey, dataSource)
-
         val sleepDetailViewModel =
             ViewModelProvider(this, viewModelFactory)[SleepDetailViewModel::class.java]
 
         binding.sleepDetailViewModel = sleepDetailViewModel
-
-        // Specify the current activity as the lifecycle owner of the binding.
-        // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this.viewLifecycleOwner
 
-        sleepDetailViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, {
-            if (it == true) { // Observed state is true
+        sleepDetailViewModel.navigateToSleepTracker.observe(viewLifecycleOwner) {
+            if (it == true) {
                 findNavController().navigate(
                     SleepDetailFragmentDirections
                         .actionSleepDetailFragmentToSleepTrackerFragment()
                 )
                 sleepDetailViewModel.doneNavigating()
             }
-        })
-
+        }
         return binding.root
     }
 

@@ -3,7 +3,6 @@ package com.example.offlinestorage.model
 import android.content.Context
 import android.widget.Toast
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -24,7 +23,6 @@ class UserManager(private val context: Context) {
             by preferencesDataStore(name = "user_prefs")
 
     val userNameFlow: Flow<String> = context.dataStore.data.map { it[USER_NAME_KEY] ?: "" }
-
     val userAgeFlow: Flow<Int> = context.dataStore.data.map {
         val age = it[USER_AGE_KEY] ?: 0
         if (age < 18) {

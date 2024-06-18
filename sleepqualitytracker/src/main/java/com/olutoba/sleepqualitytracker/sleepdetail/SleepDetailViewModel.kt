@@ -9,14 +9,12 @@ import com.olutoba.sleepqualitytracker.database.SleepNight
 
 
 class SleepDetailViewModel(
-    private val sleepNightKey: Long = 0L,
+    sleepNightKey: Long = 0L,
     datasource: SleepDatabaseDao
 ) : ViewModel() {
 
     val database = datasource
     private val night = MediatorLiveData<SleepNight>()
-
-    fun getNight() = night
 
     init {
         night.addSource(database.getNightWithId(sleepNightKey), night::setValue)
@@ -33,5 +31,7 @@ class SleepDetailViewModel(
     fun onClose() {
         _navigateToSleepTracker.value = true
     }
+
+    fun getNight() = night
 
 }
