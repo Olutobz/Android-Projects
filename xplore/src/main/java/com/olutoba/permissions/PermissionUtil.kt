@@ -18,12 +18,6 @@ import com.olutoba.xplore.R
 
 object PermissionUtil {
 
-    fun hasCameraPermission(context: Context): Boolean {
-        return ContextCompat.checkSelfPermission(
-            context, android.Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
     fun showRationaleDialog(
         context: Context,
         @StringRes title: Int,
@@ -54,6 +48,30 @@ object PermissionUtil {
         } catch (_: Exception) {
             onError()
         }
+    }
+
+    fun hasCameraPermission(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context, android.Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun hasWriteToExternalStoragePermission(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun hasForegroundLocationPermission(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context, android.Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    fun hasBackgroundLocationPermission(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context, android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
 }
