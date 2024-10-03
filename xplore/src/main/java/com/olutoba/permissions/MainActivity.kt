@@ -1,7 +1,8 @@
-package com.olutoba.xplore
+package com.olutoba.permissions
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.olutoba.xplore.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

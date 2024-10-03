@@ -1,4 +1,4 @@
-package com.olutoba.xplore
+package com.olutoba.permissions
 
 import android.content.Context
 import android.content.Intent
@@ -8,12 +8,14 @@ import android.provider.Settings
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.olutoba.xplore.R
 
 /**
  * Created by Onikoyi Damola Olutoba
  * DATE: 30 May, 2024
  * EMAIL: damexxey94@gmail.com
  */
+
 object PermissionUtil {
 
     fun hasCameraPermission(context: Context): Boolean {
