@@ -1,11 +1,14 @@
 package com.olutoba.permissions
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
+import androidx.annotation.IntRange
 import androidx.annotation.StringRes
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.olutoba.xplore.R
@@ -16,7 +19,7 @@ import com.olutoba.xplore.R
  * EMAIL: damexxey94@gmail.com
  */
 
-object PermissionUtil {
+object PermissionUtils {
 
     fun showRationaleDialog(
         context: Context,
@@ -49,6 +52,12 @@ object PermissionUtil {
             onError()
         }
     }
+
+    fun requestPermission(
+        activity: Activity,
+        permission: Array<out String>,
+        @IntRange requestCode: Int,
+    ) = ActivityCompat.requestPermissions(activity, permission, requestCode)
 
     fun hasCameraPermission(context: Context): Boolean {
         return ContextCompat.checkSelfPermission(

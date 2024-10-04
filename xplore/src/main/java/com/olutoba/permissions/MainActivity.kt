@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.olutoba.xplore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,25 +24,25 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestPermissions() {
         val permissionsToRequest = mutableListOf<String>().apply {
-            if (!PermissionUtil.hasCameraPermission(this@MainActivity)) {
+            if (!PermissionUtils.hasCameraPermission(this@MainActivity)) {
                 add(android.Manifest.permission.CAMERA)
             }
 
-            if (!PermissionUtil.hasWriteToExternalStoragePermission(this@MainActivity)) {
+            if (!PermissionUtils.hasWriteToExternalStoragePermission(this@MainActivity)) {
                 add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
 
-            if (!PermissionUtil.hasForegroundLocationPermission(this@MainActivity)) {
+            if (!PermissionUtils.hasForegroundLocationPermission(this@MainActivity)) {
                 add(android.Manifest.permission.ACCESS_COARSE_LOCATION)
             }
 
-            if (!PermissionUtil.hasBackgroundLocationPermission(this@MainActivity)) {
+            if (!PermissionUtils.hasBackgroundLocationPermission(this@MainActivity)) {
                 add(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION)
             }
         }
 
         if (permissionsToRequest.isNotEmpty()) {
-            ActivityCompat.requestPermissions(
+            PermissionUtils.requestPermission(
                 this,
                 permissionsToRequest.toTypedArray(),
                 PERMISSION_REQUEST_CODE
