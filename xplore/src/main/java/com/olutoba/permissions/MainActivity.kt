@@ -1,6 +1,8 @@
 package com.olutoba.permissions
 
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -66,6 +68,41 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun openUrlIntent() {
+        val openUrlIntent = Intent().apply {
+            action = Intent.ACTION_VIEW
+            data = Uri.parse("https://www.google.com")
+        }
+        if (openUrlIntent.resolveActivity(packageManager) != null) {
+            startActivity(openUrlIntent)
+        }
+    }
+
+    fun sendMessageIntent() {
+        val shareMsgIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "Hello World")
+            type = "text/plain"
+        }
+        if (shareMsgIntent.resolveActivity(packageManager) != null) {
+            startActivity(Intent.createChooser(shareMsgIntent, "Share Via"))
+        }
+    }
+
+    fun getAppContentIntent() {
+        val getContentsIntent = Intent().apply {
+            action = Intent.ACTION_GET_CONTENT
+            type = "image/*"
+        }
+        if (getContentsIntent.resolveActivity(packageManager) != null) {
+            startActivity(getContentsIntent)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private companion object {
