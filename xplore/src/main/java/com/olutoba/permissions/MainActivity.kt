@@ -1,17 +1,32 @@
 package com.olutoba.permissions
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.olutoba.xplore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val getImageLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            result?.let {
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val intentLaunched: Intent? = result.data
+                    val imageUri = intentLaunched?.data
+                    imageUri?.let {
+                        binding.ivIcon.setImageURI(imageUri)
+                    }
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnRequestPermission.setOnClickListener {
             requestPermissions()
+        }
+
+        binding.ivIcon.setOnClickListener {
+            getImageFromGallery()
         }
 
     }
@@ -70,17 +89,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openUrlIntent() {
-        val openUrlIntent = Intent().apply {
+    private fun openUrlIntent() {
+        val openWebUrlIntent = Intent().apply {
             action = Intent.ACTION_VIEW
             data = Uri.parse("https://www.google.com")
         }
-        if (openUrlIntent.resolveActivity(packageManager) != null) {
-            startActivity(openUrlIntent)
+        if (openWebUrlIntent.resolveActivity(packageManager) != null) {
+            startActivity(openWebUrlIntent)
         }
     }
 
-    fun sendMessageIntent() {
+    private fun shareTextIntent() {
         val shareMsgIntent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, "Hello World")
@@ -91,18 +110,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getAppContentIntent() {
-        val getContentsIntent = Intent().apply {
-            action = Intent.ACTION_GET_CONTENT
+    private fun getImageFromGallery() {
+        val imageIntent = Intent(Intent.ACTION_PICK).apply {
             type = "image/*"
         }
-        if (getContentsIntent.resolveActivity(packageManager) != null) {
-            startActivity(getContentsIntent)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+        getImageLauncher.launch(imageIntent)
     }
 
     private companion object {
