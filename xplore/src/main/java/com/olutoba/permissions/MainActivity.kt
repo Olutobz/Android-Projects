@@ -18,9 +18,8 @@ class MainActivity : AppCompatActivity() {
     private val getImageLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             result?.let {
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val intentLaunched: Intent? = result.data
-                    val imageUri = intentLaunched?.data
+                if (it.resultCode == Activity.RESULT_OK) {
+                    val imageUri = it.data?.data
                     imageUri?.let {
                         binding.ivIcon.setImageURI(imageUri)
                     }
