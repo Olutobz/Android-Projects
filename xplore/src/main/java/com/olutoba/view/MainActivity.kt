@@ -1,4 +1,4 @@
-package com.olutoba.permissions
+package com.olutoba.view
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.olutoba.utils.PermissionUtils
 import com.olutoba.xplore.R
 import com.olutoba.xplore.databinding.ActivityMainBinding
 

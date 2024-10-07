@@ -1,4 +1,4 @@
-package com.olutoba.permissions
+package com.olutoba.utils
 
 import android.app.Activity
 import android.content.Context
