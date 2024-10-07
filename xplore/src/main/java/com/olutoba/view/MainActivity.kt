@@ -12,10 +12,17 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.olutoba.utils.PermissionUtils
+import com.olutoba.utils.showAlertDialog
+import com.olutoba.utils.showMultiChoiceDialog
+import com.olutoba.utils.showSingleChoiceDialog
 import com.olutoba.xplore.R
 import com.olutoba.xplore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private companion object {
+        const val PERMISSION_REQUEST_CODE = 100
+    }
 
     private lateinit var binding: ActivityMainBinding
 
@@ -42,6 +49,37 @@ class MainActivity : AppCompatActivity() {
 
         binding.ivIcon.setOnClickListener {
             getImageFromGallery()
+        }
+
+        binding.btnDialogOne.setOnClickListener {
+            showAlertDialog(
+                this,
+                R.string.add_contact,
+                R.string.add_contact_message,
+                R.drawable.ic_add_contact,
+                { showToast(getString(R.string.approve_add_contact)) },
+                { showToast(getString(R.string.decline_add_contact)) }
+            )
+        }
+
+        binding.btnDialogTwo.setOnClickListener {
+            showSingleChoiceDialog(
+                this,
+                R.string.select_options,
+                arrayOf("Apple", "Google", "Netflix", "Meta", "Amazon"),
+                { showToast(getString(R.string.accept_single_choice_dialog)) },
+                { showToast(getString(R.string.declined_single_choice_dialog)) },
+            )
+        }
+
+        binding.btnDialogThree.setOnClickListener {
+            showMultiChoiceDialog(
+                this,
+                R.string.select_options,
+                arrayOf("Apple", "Google", "Netflix", "Meta"),
+                { showToast(getString(R.string.accepted_multi_choice_dialog)) },
+                { showToast(getString(R.string.decline_multi_choice_dialog)) },
+            )
         }
 
     }
@@ -120,10 +158,6 @@ class MainActivity : AppCompatActivity() {
         getImageLauncher.launch(imageIntent)
     }
 
-    private companion object {
-        const val PERMISSION_REQUEST_CODE = 100
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.app_bar_menu, menu)
         return true
@@ -132,15 +166,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_add_contact -> showToast(getString(R.string.clicked_on_add_contact))
-
             R.id.menu_settings -> showToast(getString(R.string.clicked_on_settings))
-
             R.id.menu_favorites -> showToast(getString(R.string.clicked_on_favorites))
-
             R.id.menu_feedback -> showToast(getString(R.string.clicked_on_feedback))
-
             R.id.menu_close_app -> showToast(getString(R.string.clicked_on_close_app))
-
             else -> super.onOptionsItemSelected(item)
         }
 
