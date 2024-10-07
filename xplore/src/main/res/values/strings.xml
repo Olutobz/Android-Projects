@@ -9,4 +9,14 @@
     <string name="favorites">Favorites</string>
     <string name="close_app">Close App</string>
     <string name="give_feedback">Give Feedback</string>
+    <string name="dialog_one">Dialog 1</string>
+    <string name="dialog_two">Dialog 2</string>
+    <string name="dialog_three">Dialog 3</string>
+    <string name="clicked_on_add_contact">clicked on add contact</string>
+    <string name="clicked_on_settings">clicked on settings</string>
+    <string name="clicked_on_favorites">clicked on favorites</string>
+    <string name="clicked_on_feedback">clicked on feedback</string>
+    <string name="clicked_on_close_app">clicked on close app</string>
+    <string name="share_via">Share Via</string>
+    <string name="permission_granted">Permission Granted</string>
 </resources>

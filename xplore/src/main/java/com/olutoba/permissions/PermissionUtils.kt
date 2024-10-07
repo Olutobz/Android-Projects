@@ -7,11 +7,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
 import androidx.annotation.IntRange
-import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.olutoba.xplore.R
 
 /**
  * Created by Onikoyi Damola Olutoba
@@ -20,25 +17,6 @@ import com.olutoba.xplore.R
  */
 
 object PermissionUtils {
-
-    fun showRationaleDialog(
-        context: Context,
-        @StringRes title: Int,
-        @StringRes rationale: Int,
-        positiveAction: () -> Unit,
-        negativeAction: () -> Unit,
-    ) {
-        MaterialAlertDialogBuilder(context)
-            .setTitle(context.resources.getString(title))
-            .setMessage(context.resources.getString(rationale))
-            .setPositiveButton(context.getString(R.string.proceed)) { _, _ ->
-                positiveAction()
-            }
-            .setNegativeButton(context.getString(R.string.decline)) { _, _ ->
-                negativeAction()
-            }
-            .show()
-    }
 
     fun openPermissionSettings(context: Context, onError: () -> Unit) {
         try {

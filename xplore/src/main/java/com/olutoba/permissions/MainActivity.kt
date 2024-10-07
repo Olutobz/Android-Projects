@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             for (i in permissions.indices) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(
-                        this, "Permission Granted", Toast.LENGTH_SHORT
+                        this, getString(R.string.permission_granted), Toast.LENGTH_SHORT
                     ).show()
                     Log.d("permissionReqGranted", permissions[i])
                 }
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             type = "text/plain"
         }
         if (shareMsgIntent.resolveActivity(packageManager) != null) {
-            startActivity(Intent.createChooser(shareMsgIntent, "Share Via"))
+            startActivity(Intent.createChooser(shareMsgIntent, getString(R.string.share_via)))
         }
     }
 
@@ -130,40 +130,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_add_contact -> Toast.makeText(
-                this,
-                "clicked on add contact",
-                Toast.LENGTH_SHORT
-            ).show()
+            R.id.menu_add_contact -> showToast(getString(R.string.clicked_on_add_contact))
 
-            R.id.menu_settings -> Toast.makeText(
-                this,
-                "clicked on settings",
-                Toast.LENGTH_SHORT
-            ).show()
+            R.id.menu_settings -> showToast(getString(R.string.clicked_on_settings))
 
-            R.id.menu_favorites -> Toast.makeText(
-                this,
-                "clicked on favorites",
-                Toast.LENGTH_SHORT
-            ).show()
+            R.id.menu_favorites -> showToast(getString(R.string.clicked_on_favorites))
 
-            R.id.menu_feedback -> Toast.makeText(
-                this,
-                "clicked on feedback",
-                Toast.LENGTH_SHORT
-            ).show()
+            R.id.menu_feedback -> showToast(getString(R.string.clicked_on_feedback))
 
-            R.id.menu_close_app -> Toast.makeText(
-                this,
-                "clicked on close app",
-                Toast.LENGTH_SHORT
-            ).show()
+            R.id.menu_close_app -> showToast(getString(R.string.clicked_on_close_app))
 
             else -> super.onOptionsItemSelected(item)
         }
 
         return true
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 }
