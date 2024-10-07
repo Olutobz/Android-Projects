@@ -6,9 +6,12 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.olutoba.xplore.R
 import com.olutoba.xplore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -118,6 +121,49 @@ class MainActivity : AppCompatActivity() {
 
     private companion object {
         const val PERMISSION_REQUEST_CODE = 100
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.app_bar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_add_contact -> Toast.makeText(
+                this,
+                "clicked on add contact",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            R.id.menu_settings -> Toast.makeText(
+                this,
+                "clicked on settings",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            R.id.menu_favorites -> Toast.makeText(
+                this,
+                "clicked on favorites",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            R.id.menu_feedback -> Toast.makeText(
+                this,
+                "clicked on feedback",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            R.id.menu_close_app -> Toast.makeText(
+                this,
+                "clicked on close app",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
+        return true
     }
 
 }
