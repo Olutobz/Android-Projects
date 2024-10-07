@@ -6,6 +6,9 @@
     <string name="permission_denied_description">You need to grant permissions to use this app</string>
     <string name="settings">Settings</string>
     <string name="add_contact">Add Contact</string>
+    <string name="add_contact_message">Do you want to add Olutoba to your contact?</string>
+    <string name="approve_add_contact">You have added Olutoba to your contact list</string>
+    <string name="decline_add_contact">You didn\'t add Olutoba to your contact list.</string>
     <string name="favorites">Favorites</string>
     <string name="close_app">Close App</string>
     <string name="give_feedback">Give Feedback</string>
