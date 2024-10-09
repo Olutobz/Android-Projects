@@ -84,8 +84,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val countries = listOf("USA", "UK", "Canada", "Germany")
-        val adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, countries)
-        binding.spCountries.setAdapter(adapter)
+        val spinnerAdapter =
+            ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, countries)
+        binding.spCountries.setAdapter(spinnerAdapter)
         binding.spCountries.setOnItemClickListener { parent, _, position, _ ->
             Toast.makeText(
                 this@MainActivity,

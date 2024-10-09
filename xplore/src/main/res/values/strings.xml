@@ -27,4 +27,5 @@
     <string name="declined_single_choice_dialog">You declined the single choice dialog</string>
     <string name="accepted_multi_choice_dialog">You accepted the multi choice dialog</string>
     <string name="decline_multi_choice_dialog">You declined the multi choice dialog</string>
+    <string name="dialog_option_selected">You have selected %s</string>
 </resources>

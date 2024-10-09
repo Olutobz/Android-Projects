@@ -98,9 +98,21 @@ fun showMultiChoiceDialog(
             booleanArrayOf(false, false, false, false)
         ) { _, position, isChecked ->
             if (isChecked) {
-                showToast(context, "You have selected ${options[position]}")
+                showToast(
+                    context,
+                    String.format(
+                        context.getString(R.string.dialog_option_selected),
+                        options[position]
+                    )
+                )
             } else {
-                showToast(context, "You have deselected ${options[position]}")
+                showToast(
+                    context,
+                    String.format(
+                        context.getString(R.string.dialog_option_selected),
+                        options[position]
+                    )
+                )
             }
         }
         .setPositiveButton(context.getString(R.string.proceed)) { dialog, _ ->
