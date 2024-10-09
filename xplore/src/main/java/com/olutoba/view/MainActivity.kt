@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -80,6 +81,17 @@ class MainActivity : AppCompatActivity() {
                 { showToast(getString(R.string.accepted_multi_choice_dialog)) },
                 { showToast(getString(R.string.decline_multi_choice_dialog)) },
             )
+        }
+
+        val countries = listOf("USA", "UK", "Canada", "Germany")
+        val adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, countries)
+        binding.spCountries.setAdapter(adapter)
+        binding.spCountries.setOnItemClickListener { parent, _, position, _ ->
+            Toast.makeText(
+                this@MainActivity,
+                "You have selected ${parent?.getItemAtPosition(position)}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
     }
