@@ -36,40 +36,43 @@
         android:id="@+id/btnDialogOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/dialog_one"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDialogTwo"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRequestPermission" />
 
     <Button
         android:id="@+id/btnDialogTwo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="0dp"
         android:text="@string/dialog_two"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/btnDialogOne"
+        app:layout_constraintEnd_toStartOf="@+id/btnDialogThree"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDialogOne" />
+        app:layout_constraintStart_toEndOf="@+id/btnDialogOne"
+        app:layout_constraintTop_toTopOf="@id/btnDialogOne" />
 
     <Button
         android:id="@+id/btnDialogThree"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/dialog_three"
+        app:layout_constraintBottom_toBottomOf="@id/btnDialogTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDialogTwo" />
+        app:layout_constraintStart_toEndOf="@+id/btnDialogTwo"
+        app:layout_constraintTop_toTopOf="@+id/btnDialogTwo" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnDialogThree">
@@ -80,7 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="none"
-            android:padding="8dp"
+            android:padding="4dp"
             tools:text="United States Of America" />
 
     </com.google.android.material.textfield.TextInputLayout>
