@@ -23,17 +23,18 @@ class MainActivity : AppCompatActivity() {
 
     private companion object {
         const val PERMISSION_REQUEST_CODE = 100
+        const val EXAMPLE_URL = "https://www.google.com"
     }
 
     private lateinit var binding: ActivityMainBinding
 
-    private val getImageLauncher =
+    private val imageLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             result?.let {
                 if (it.resultCode == Activity.RESULT_OK) {
                     val imageUri = it.data?.data
                     imageUri?.let {
-                        binding.ivIcon.setImageURI(imageUri)
+                        binding.imageProfile.setImageURI(imageUri)
                     }
                 }
             }
@@ -44,15 +45,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnRequestPermission.setOnClickListener {
+        binding.buttonRequestPermission.setOnClickListener {
             requestPermissions()
         }
 
-        binding.ivIcon.setOnClickListener {
+        binding.imageProfile.setOnClickListener {
             getImageFromGallery()
         }
 
-        binding.btnDialogOne.setOnClickListener {
+        binding.buttonDialogOne.setOnClickListener {
             showAlertDialog(
                 this,
                 R.string.add_contact,
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        binding.btnDialogTwo.setOnClickListener {
+        binding.buttonDialogTwo.setOnClickListener {
             showSingleChoiceDialog(
                 this,
                 R.string.select_options,
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        binding.btnDialogThree.setOnClickListener {
+        binding.buttonDialogThree.setOnClickListener {
             showMultiChoiceDialog(
                 this,
                 R.string.select_options,
@@ -86,11 +87,14 @@ class MainActivity : AppCompatActivity() {
         val countries = listOf("USA", "UK", "Canada", "Germany")
         val spinnerAdapter =
             ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, countries)
-        binding.spCountries.setAdapter(spinnerAdapter)
-        binding.spCountries.setOnItemClickListener { parent, _, position, _ ->
+        binding.autoTextCountries.setAdapter(spinnerAdapter)
+        binding.autoTextCountries.setOnItemClickListener { parent, _, position, _ ->
             Toast.makeText(
                 this@MainActivity,
-                "You have selected ${parent?.getItemAtPosition(position)}",
+                String.format(
+                    this.getString(R.string.dialog_option_selected),
+                    parent?.getItemAtPosition(position)
+                ),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -146,7 +150,7 @@ class MainActivity : AppCompatActivity() {
     private fun openUrlIntent() {
         val openWebUrlIntent = Intent().apply {
             action = Intent.ACTION_VIEW
-            data = Uri.parse("https://www.google.com")
+            data = Uri.parse(EXAMPLE_URL)
         }
         if (openWebUrlIntent.resolveActivity(packageManager) != null) {
             startActivity(openWebUrlIntent)
@@ -168,11 +172,11 @@ class MainActivity : AppCompatActivity() {
         val imageIntent = Intent(Intent.ACTION_PICK).apply {
             type = "image/*"
         }
-        getImageLauncher.launch(imageIntent)
+        imageLauncher.launch(imageIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.app_bar_menu, menu)
+        menuInflater.inflate(R.menu.menu_app_bar, menu)
         return true
     }
 

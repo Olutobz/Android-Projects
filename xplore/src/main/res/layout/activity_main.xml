@@ -2,19 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.olutoba.view.MainActivity">
 
     <ImageView
-        android:id="@+id/ivIcon"
+        android:id="@+id/image_profile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@null"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/btnRequestPermission"
+        app:layout_constraintBottom_toTopOf="@+id/button_request_permission"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +21,7 @@
         tools:src="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/btnRequestPermission"
+        android:id="@+id/button_request_permission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -30,55 +29,56 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/image_profile" />
 
     <Button
-        android:id="@+id/btnDialogOne"
+        android:id="@+id/button_dialog_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/dialog_one"
-        app:layout_constraintEnd_toStartOf="@+id/btnDialogTwo"
+        app:layout_constraintEnd_toStartOf="@+id/button_dialog_two"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRequestPermission" />
+        app:layout_constraintTop_toBottomOf="@+id/button_request_permission" />
 
     <Button
-        android:id="@+id/btnDialogTwo"
+        android:id="@+id/button_dialog_two"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="@string/dialog_two"
-        app:layout_constraintBottom_toBottomOf="@id/btnDialogOne"
-        app:layout_constraintEnd_toStartOf="@+id/btnDialogThree"
+        app:layout_constraintBottom_toBottomOf="@id/button_dialog_one"
+        app:layout_constraintEnd_toStartOf="@+id/button_dialog_three"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnDialogOne"
-        app:layout_constraintTop_toTopOf="@id/btnDialogOne" />
+        app:layout_constraintStart_toEndOf="@+id/button_dialog_one"
+        app:layout_constraintTop_toTopOf="@id/button_dialog_one" />
 
     <Button
-        android:id="@+id/btnDialogThree"
+        android:id="@+id/button_dialog_three"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:text="@string/dialog_three"
-        app:layout_constraintBottom_toBottomOf="@id/btnDialogTwo"
+        app:layout_constraintBottom_toBottomOf="@id/button_dialog_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnDialogTwo"
-        app:layout_constraintTop_toTopOf="@+id/btnDialogTwo" />
+        app:layout_constraintStart_toEndOf="@+id/button_dialog_two"
+        app:layout_constraintTop_toTopOf="@+id/button_dialog_two" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/spinner_container"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnDialogThree">
+        app:layout_constraintTop_toBottomOf="@id/button_dialog_three">
 
         <AutoCompleteTextView
-            android:id="@+id/spCountries"
+            android:id="@+id/auto_text_countries"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -87,5 +87,42 @@
             tools:text="United States Of America" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/edit_text_todo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/new_todo"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/button_add"
+        app:layout_constraintEnd_toStartOf="@id/button_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button_add" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/add"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edit_text_todo"
+        app:layout_constraintTop_toBottomOf="@id/spinner_container" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_todo_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/button_add"
+        app:layout_constraintStart_toStartOf="@id/edit_text_todo"
+        app:layout_constraintTop_toBottomOf="@id/button_add"
+        tools:listitem="@layout/item_todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

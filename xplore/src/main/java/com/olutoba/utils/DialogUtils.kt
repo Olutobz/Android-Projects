@@ -69,7 +69,10 @@ fun showSingleChoiceDialog(
         .setSingleChoiceItems(options, 0) { _, isChecked ->
             Toast.makeText(
                 context,
-                "You have selected ${options[isChecked]}",
+                String.format(
+                    context.getString(R.string.dialog_option_selected),
+                    options[isChecked]
+                ),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -109,7 +112,7 @@ fun showMultiChoiceDialog(
                 showToast(
                     context,
                     String.format(
-                        context.getString(R.string.dialog_option_selected),
+                        context.getString(R.string.dialog_option_deselected),
                         options[position]
                     )
                 )

@@ -2,6 +2,7 @@
     <string name="app_name">Xplore</string>
     <string name="decline">Decline</string>
     <string name="proceed">Proceed</string>
+    <string name="add">Add</string>
     <string name="request_permission">Request Permission</string>
     <string name="permission_denied_description">You need to grant permissions to use this app</string>
     <string name="settings">Settings</string>
@@ -28,4 +29,6 @@
     <string name="accepted_multi_choice_dialog">You accepted the multi choice dialog</string>
     <string name="decline_multi_choice_dialog">You declined the multi choice dialog</string>
     <string name="dialog_option_selected">You have selected %s</string>
+    <string name="dialog_option_deselected">You have deselected %s</string>
+    <string name="new_todo">New Todo</string>
 </resources>
