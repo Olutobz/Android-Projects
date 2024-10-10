@@ -12,6 +12,10 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
+import com.olutoba.adapter.TodoAdapter
+import com.olutoba.model.TodoItem
 import com.olutoba.utils.PermissionUtils
 import com.olutoba.utils.showAlertDialog
 import com.olutoba.utils.showMultiChoiceDialog
@@ -27,6 +31,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: TodoAdapter
+    private lateinit var todosSnapHelper: SnapHelper
 
     private val imageLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -99,6 +105,38 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }
 
+        todosSnapHelper = LinearSnapHelper()
+        adapter = TodoAdapter()
+        binding.recyclerviewTodoList.adapter = adapter
+        todosSnapHelper.attachToRecyclerView(binding.recyclerviewTodoList)
+        adapter.submitList(showFakeTodos())
+
+        binding.buttonAdd.setOnClickListener {
+            val title = binding.editTextTodo.text.toString()
+            val newTodoItem = TodoItem(title = title, isChecked = false)
+            adapter.submitList(showFakeTodos(newTodoItem))
+            binding.editTextTodo.text.clear()
+        }
+
+    }
+
+    private fun showFakeTodos(newTodoItem: TodoItem? = null): List<TodoItem> {
+        val fakeTodos = mutableListOf(
+            TodoItem("Visit San Francisco", true),
+            TodoItem("Visit New York", true),
+            TodoItem("Visit Chicago", true),
+            TodoItem("Visit Texas", false),
+            TodoItem("Visit Washington", false),
+            TodoItem("Visit Colorado", false),
+            TodoItem("Visit New Hampshire", true),
+            TodoItem("Visit Los Angeles", false),
+            TodoItem("Visit Arkansas", false),
+            TodoItem("Visit Alabama", false),
+        )
+        newTodoItem?.let {
+            fakeTodos.add(it)
+        }
+        return fakeTodos.toList()
     }
 
     private fun requestPermissions() {
